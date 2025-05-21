@@ -1,12 +1,15 @@
 import streamlit as st
-import openai
+from openai import OpenAI
 import os
 import speech_recognition as sr
 import pyttsx3
 import tempfile
 import json
+from dotenv import load_dotenv
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+load_dotenv()
+# Cargar API Key desde variable de entorno
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 st.set_page_config(page_title="Asistente Migrante", layout="centered")
 tts_engine = pyttsx3.init()
@@ -24,8 +27,8 @@ def whisper_transcribe():
         with open(tmp.name, "wb") as f:
             f.write(audio.get_wav_data())
         with open(tmp.name, "rb") as audio_file:
-            transcript = openai.Audio.transcribe("whisper-1", audio_file)
-    return transcript['text']
+            transcript = client.audio.transcriptions.create(model="whisper-1", file=audio_file)
+    return transcript.text
 
 @st.cache_data
 def load_base_knowledge():
@@ -51,7 +54,7 @@ Eres un asistente financiero para migrantes en España. Debes responder de forma
 - IRPF: {base_knowledge['irpf']}
 - Remesas: {base_knowledge['remesas']}
 """
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-4o",
         messages=[
             {"role": "system", "content": prompt_sistema},

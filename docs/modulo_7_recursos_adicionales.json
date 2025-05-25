@@ -1,0 +1,17 @@
+{
+    "modulo": "7. Recursos adicionales",
+    "contenido": {
+        "Portales oficiales y recursos online": "- Banco de España: clientebancario.bde.es ofrece información sobre productos bancarios, simuladores y consejos de seguridad.\n- CNMV: cnmv.es dispone de guías, alertas sobre chiringuitos financieros y recursos para inversores.\n- Finanzas para todos: finanzasparatodos.es centraliza materiales educativos, herramientas y vídeos divulgativos.\n- Seguridad Social y Agencia Tributaria: webs oficiales con información sobre pensiones, prestaciones y fiscalidad.",
+        "Herramientas prácticas": "- Simuladores de hipotecas, préstamos, TAE y comparadores bancarios.\n- Calculadoras de IRPF, cotizaciones y jubilación.\n- Aplicaciones móviles para gestionar el presupuesto y el ahorro.\nEstas herramientas permiten anticipar resultados, comparar productos y tomar decisiones informadas.",
+        "Educación continua": "- Guías descargables, vídeos formativos, webinars y cursos gratuitos sobre finanzas básicas.\n- Cursos MOOC en plataformas como Coursera o EdX, en colaboración con universidades.\n- Libros en español sobre economía doméstica y finanzas personales.\n- Contenidos de ONGs y fundaciones de bancos para públicos específicos (jóvenes, mayores, emprendedores, etc.).",
+        "Asesoramiento y ayuda": "- Servicios de atención al cliente de bancos y organismos supervisores.\n- Oficinas de consumo y defensor del cliente financiero.\n- Asociaciones de consumidores y plataformas de reclamación online.\n- Teléfonos y formularios web para consultas y reclamaciones.",
+        "Resumen": "Existen múltiples recursos y herramientas para ampliar conocimientos financieros, resolver dudas, simular operaciones y proteger al consumidor. Acudir a fuentes oficiales y contrastadas es clave para evitar fraudes y tomar decisiones acertadas."
+    },
+    "enlaces": [
+        "https://clientebancario.bde.es",
+        "https://www.cnmv.es",
+        "https://finanzasparatodos.es",
+        "https://www.seg-social.es",
+        "https://www.agenciatributaria.es"
+    ]
+}

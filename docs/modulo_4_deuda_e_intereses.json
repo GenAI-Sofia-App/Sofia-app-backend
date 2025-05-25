@@ -1,0 +1,18 @@
+{
+    "modulo": "4. Deuda e intereses",
+    "contenido": {
+        "¿Qué es la deuda?": "La deuda es la obligación de devolver una cantidad de dinero recibida en préstamo, junto con los intereses y comisiones pactados. Es útil para financiar compras importantes o hacer frente a gastos imprevistos, pero conlleva el compromiso de devolver el dinero en las condiciones acordadas.",
+        "Tipos de deuda": "- Préstamos personales: Se destinan a financiar bienes de consumo o necesidades puntuales. El importe, el plazo y el interés están fijados en el contrato.\n- Créditos rápidos o al consumo: Se obtienen de forma inmediata y suelen tener intereses altos.\n- Préstamo hipotecario: Se utiliza para la compra de vivienda y tiene un plazo largo y tipos de interés más bajos.\n- Tarjetas de crédito: Permiten financiar compras o disponer de efectivo. Si no se paga el saldo a fin de mes, se aplican intereses muy elevados.\nEs importante conocer el coste real de cada tipo de deuda y no acumular varios préstamos al mismo tiempo.",
+        "Intereses y TAE": "El interés es el precio que se paga por recibir un préstamo. Puede ser fijo (no varía en el tiempo) o variable (referenciado a un índice como el euríbor). La TAE (Tasa Anual Equivalente) es el indicador que refleja el coste efectivo total del préstamo, incluyendo intereses, comisiones y otros gastos. Permite comparar ofertas de forma sencilla.\nEl interés compuesto hace que la deuda crezca más rápidamente si no se pagan las cuotas, porque los intereses se suman al capital pendiente.",
+        "Riesgos del endeudamiento": "El principal riesgo es el sobreendeudamiento, que se produce cuando los ingresos no son suficientes para cubrir las deudas y los gastos básicos. Puede llevar a impagos, recargos, inclusión en ficheros de morosos, embargo de bienes y dificultades para acceder a nuevos créditos.\nSe recomienda que las deudas (excluida la hipoteca) no superen el 30-35% de los ingresos mensuales.",
+        "Consejos para un endeudamiento responsable": "• Valorar si el préstamo es realmente necesario y si se podrá devolver en plazo.\n• Comparar distintas ofertas y leer bien el contrato, prestando atención a la TAE y las comisiones.\n• Evitar solicitar créditos rápidos o usar la tarjeta de crédito para gastos habituales.\n• Pagar puntualmente para evitar recargos e intereses de demora.\n• En caso de dificultad, negociar con la entidad y no encadenar un préstamo tras otro para pagar deudas anteriores.",
+        "Ficheros de morosos": "Son registros donde se anotan las personas o empresas con deudas impagadas. La inclusión en estos ficheros dificulta el acceso al crédito y puede afectar a la vida cotidiana. Antes de ser incluido, la persona debe ser informada y puede ejercer su derecho de rectificación si la deuda no es correcta.",
+        "Resumen": "La deuda debe utilizarse con prudencia y solo si es realmente necesaria. Conocer el coste total, comparar ofertas y calcular la capacidad de pago ayuda a evitar el sobreendeudamiento. Una gestión responsable de la deuda es clave para la salud financiera."
+    },
+    "enlaces": [
+        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/prestamos/que-es-la-tae/",
+        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/prestamos/que-es-un-prestamo/",
+        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/prestamos/simuladores-prestamos/",
+        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/prestamos/tarjetas-de-credito/"
+    ]
+}

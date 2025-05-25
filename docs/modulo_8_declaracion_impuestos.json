@@ -1,0 +1,18 @@
+{
+  "modulo": "8. Cómo declarar impuestos en España (personas físicas)",
+  "contenido": {
+    "¿Qué es la declaración de la renta?": "La declaración de la renta, también conocida como IRPF (Impuesto sobre la Renta de las Personas Físicas), es un tributo anual que grava los ingresos obtenidos por los residentes en España. Incluye salarios, pensiones, actividades económicas, alquileres, intereses, dividendos y ganancias patrimoniales. La Agencia Tributaria (AEAT) se encarga de su gestión.",
+    "¿Quién está obligado a declarar?": "Deben presentar la declaración de la renta:\n- Personas que hayan percibido más de 22.000 € anuales de un solo pagador.\n- Más de 15.000 € de varios pagadores, si el segundo pagador supera los 1.500 €.\n- Autónomos, arrendadores de inmuebles, perceptores de rendimientos de capital o ganancias patrimoniales.\n- Personas que soliciten devoluciones o deducciones.\nExisten excepciones, por lo que se recomienda consultar cada año los límites actualizados en la web de la AEAT.",
+    "Plazos y fechas clave": "La campaña de la renta comienza habitualmente en abril y finaliza a finales de junio.\n- Abril: Inicio de la presentación por internet.\n- Mayo-junio: Atención telefónica o presencial (con cita previa).\n- Junio: Último día para presentar la declaración y domiciliar pagos.\nFechas exactas varían cada año y se publican en el calendario fiscal de la Agencia Tributaria.",
+    "Cómo hacer la declaración": "1. Acceder a la web de la Agencia Tributaria (https://www.agenciatributaria.es).\n2. Identificarse con Cl@ve PIN, certificado digital o número de referencia.\n3. Acceder al borrador de declaración (Renta Web) y revisar los datos.\n4. Modificar o añadir información (por ejemplo, deducciones, rendimientos, etc.).\n5. Confirmar y presentar.\n6. Seleccionar forma de pago (ingreso, fraccionado, domiciliado) o devolución.\nSe puede presentar online, por teléfono o presencialmente en oficinas de la AEAT (con cita).",
+    "Deducciones comunes": "- Deducción por vivienda habitual (para hipotecas antiguas).\n- Deducción por alquiler (en algunas comunidades autónomas).\n- Aportaciones a planes de pensiones.\n- Donativos a ONGs y entidades sin ánimo de lucro.\n- Deducción por maternidad o por familia numerosa.\n- Reducción por rendimientos del trabajo y mínimos personales/familiares.\nEs fundamental revisar las deducciones autonómicas que pueden variar según la comunidad.",
+    "Errores frecuentes y consejos": "• No revisar los datos fiscales: pueden faltar rendimientos de alquiler o cuentas compartidas.\n• Olvidar incluir ingresos del extranjero o criptomonedas.\n• No aplicar deducciones por desconocimiento.\n• Presentar fuera de plazo: puede conllevar sanciones.\n• Consejo: usar simuladores de renta y guardar copia de todo lo presentado. En caso de duda, se recomienda consultar con un asesor o utilizar el servicio telefónico de la AEAT.",
+    "Resumen": "Declarar la renta correctamente permite cumplir con las obligaciones fiscales, evitar sanciones y acceder a devoluciones o beneficios. Revisar los datos, conocer las deducciones aplicables y respetar los plazos son claves para una gestión eficaz."
+  },
+  "enlaces": [
+    "https://www.agenciatributaria.es/AEAT.internet/Renta.shtml",
+    "https://www.agenciatributaria.es/AEAT.internet/Renta/Calendario_de_la_Renta/Campana_Renta.shtml",
+    "https://sede.agenciatributaria.gob.es/Sede/Renta.shtml",
+    "https://www.agenciatributaria.es/AEAT.internet/Inicio/_Segmentos_/Ciudadanos/_Campanas/_Renta/Renta.shtml"
+  ]
+}

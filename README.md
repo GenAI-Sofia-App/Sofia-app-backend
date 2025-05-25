@@ -27,8 +27,15 @@ OPENAI_API_KEY=sk-xxxxx
 
 4. Ejecuta la app:
 
+Mediante:
 ```bash
 streamlit run app.py
+```
+
+o mediante:
+
+```bash
+python -m streamlit run app.py
 ```
 
 ## 📁 Estructura

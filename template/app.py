@@ -8,59 +8,44 @@ import json
 from dotenv import load_dotenv
 from pathlib import Path
 import threading
+from langdetect import detect
+from deep_translator import GoogleTranslator
 
 # Cargar variables de entorno
 env_path = Path(__file__).resolve().parent.parent / '.env'
 load_dotenv(dotenv_path=env_path)
 
-# Inicializar cliente de OpenAI
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
-# Configurar página Streamlit
 st.set_page_config(page_title="Asistente Migrante", layout="centered")
 
-# Inicializar motor TTS
 tts_engine = pyttsx3.init()
 available_voices = tts_engine.getProperty('voices')
-
-#  SELECCIÓN MANUAL DE VOZ (COMENTADO)
-# voice_options = [f"{v.name} ({v.id})" for v in available_voices]
-# if "selected_voice" not in st.session_state:
-#     st.session_state.selected_voice = None
-# st.sidebar.title("🗣️ Voz del asistente")
-# selected_voice_label = st.sidebar.selectbox("Elige una voz disponible:", voice_options)
-# for voice in available_voices:
-#     label = f"{voice.name} ({voice.id})"
-#     if label == selected_voice_label:
-#         tts_engine.setProperty('voice', voice.id)
-#         st.session_state.selected_voice = voice.id
-#         break
-
-# Selección automática de voz en español
-for voice in available_voices:
-    if "spanish" in voice.name.lower() or "es" in voice.id.lower() or "pablo" in voice.name.lower():
-        tts_engine.setProperty('voice', voice.id)
-        break
-
 tts_engine.setProperty('rate', 150)
 tts_engine.setProperty('volume', 1.0)
 
-# Bloqueo para evitar múltiples ejecuciones simultáneas de runAndWait
+# Bloqueo para el TTS
 speak_lock = threading.Lock()
 
-# Función segura para hablar con pyttsx3
-def speak(text):
+def speak(text, lang="es"):
     def run():
-        if not speak_lock.locked():
-            with speak_lock:
-                try:
-                    tts_engine.say(text)
-                    tts_engine.runAndWait()
-                except RuntimeError as e:
-                    print("Error al hablar:", e)
+        with speak_lock:
+            try:
+                st.session_state.speaking = True  # 🚫 Bloquear entrada mientras habla
+                for voice in available_voices:
+                    if lang == "en" and "english" in voice.name.lower():
+                        tts_engine.setProperty('voice', voice.id)
+                        break
+                    elif lang == "es" and "spanish" in voice.name.lower():
+                        tts_engine.setProperty('voice', voice.id)
+                        break
+                tts_engine.say(text)
+                tts_engine.runAndWait()
+            except RuntimeError as e:
+                print("Error al hablar:", e)
+            finally:
+                st.session_state.speaking = False  # ✅ Permitir entrada nuevamente
     threading.Thread(target=run).start()
 
-# Función para transcribir voz (sin detección de idioma)
 def whisper_transcribe():
     r = sr.Recognizer()
     with sr.Microphone() as source:
@@ -76,7 +61,41 @@ def whisper_transcribe():
             )
     return transcript.text
 
-# Cargar base de conocimiento
+def chat_with_gpt(user_msg):
+    detected_lang = detect(user_msg)
+    translated_input = user_msg
+    if detected_lang != "es":
+        try:
+            translated_input = GoogleTranslator(source=detected_lang, target="es").translate(user_msg)
+        except Exception:
+            pass
+
+    prompt_sistema = f"""
+Eres un asistente financiero para migrantes en España. Debes responder de forma clara, precisa y empática. Usa esta base:
+- Apertura cuenta: {base_knowledge['cuenta_bancaria']}
+- IRPF: {base_knowledge['irpf']}
+- Remesas: {base_knowledge['remesas']}
+"""
+
+    response = client.chat.completions.create(
+        model="gpt-4o",
+        messages=[
+            {"role": "system", "content": prompt_sistema},
+            {"role": "user", "content": translated_input}
+        ],
+        temperature=0.3
+    )
+
+    full_response = response.choices[0].message.content
+
+    if detected_lang != "es":
+        try:
+            full_response = GoogleTranslator(source="es", target=detected_lang).translate(full_response)
+        except Exception:
+            pass
+
+    return full_response, detected_lang
+
 @st.cache_data
 def load_base_knowledge():
     with open("base_doc.json", "r", encoding="utf-8") as f:
@@ -84,56 +103,44 @@ def load_base_knowledge():
 
 base_knowledge = load_base_knowledge()
 
-# Inicializar sesión
+# Estado
 if "messages" not in st.session_state:
     st.session_state.messages = []
 if "listening" not in st.session_state:
     st.session_state.listening = False
+if "voice_response_pending" not in st.session_state:
+    st.session_state.voice_response_pending = None
+if "voice_response_lang" not in st.session_state:
+    st.session_state.voice_response_lang = None
+if "speaking" not in st.session_state:
+    st.session_state.speaking = False
 
-# Interfaz de chat
 st.title("🤖 Asistente Financiero para Migrantes")
 st.markdown("Pregunta por texto o voz. Puedes cargar tus documentos también.")
 
-# Mostrar mensajes anteriores
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
 
-# Generar respuesta del asistente
-def chat_with_gpt(user_msg):
-    prompt_sistema = f"""
-Eres un asistente financiero para migrantes en España. Debes responder de forma clara, precisa y empática. Usa esta base:
-- Apertura cuenta: {base_knowledge['cuenta_bancaria']}
-- IRPF: {base_knowledge['irpf']}
-- Remesas: {base_knowledge['remesas']}
-"""
-    response = client.chat.completions.create(
-        model="gpt-4o",
-        messages=[
-            {"role": "system", "content": prompt_sistema},
-            *st.session_state.messages,
-            {"role": "user", "content": user_msg}
-        ],
-        temperature=0.3
-    )
-    return response.choices[0].message.content
-
-# Entrada de texto y botón de voz (en columnas)
+# Entrada texto / voz
 col1, col2 = st.columns([4, 1])
 
 with col1:
-    prompt = st.chat_input("Escribe aquí tu pregunta")
+    if st.session_state.get("speaking", False):
+        st.chat_input("🗣️ Reproduciendo respuesta...", disabled=True)
+    else:
+        prompt = st.chat_input("Escribe aquí tu pregunta")
 
-if prompt:
-    st.session_state.messages.append({"role": "user", "content": prompt})
+if "prompt" in locals() and prompt:
     with st.chat_message("user"):
         st.markdown(prompt)
+    st.session_state.messages.append({"role": "user", "content": prompt})
+
     with st.chat_message("assistant"):
-        full_response = chat_with_gpt(prompt)
+        full_response, lang = chat_with_gpt(prompt)
         st.markdown(full_response)
     st.session_state.messages.append({"role": "assistant", "content": full_response})
 
-# Botón de voz con estado dinámico
 with col2:
     if st.session_state.listening:
         st.button("🎧 Escuchando...", disabled=True)
@@ -142,22 +149,33 @@ with col2:
             st.session_state.listening = True
             st.rerun()
 
-# Ejecutar transcripción si se activó el estado de escucha
+# Reproducir voz tras rerun
+if st.session_state.voice_response_pending:
+    with st.status("🗣️ Reproduciendo respuesta...", expanded=False):
+        speak(st.session_state.voice_response_pending, st.session_state.voice_response_lang)
+    st.session_state.voice_response_pending = None
+    st.session_state.voice_response_lang = None
+
+# Voz
 if st.session_state.listening:
     user_voice = whisper_transcribe()
+    detected_lang = detect(user_voice)
     st.info(f"Tú dijiste: {user_voice}")
     st.session_state.messages.append({"role": "user", "content": user_voice})
+
     with st.chat_message("user"):
         st.markdown(user_voice)
     with st.chat_message("assistant"):
-        full_response = chat_with_gpt(user_voice)
+        full_response, lang = chat_with_gpt(user_voice)
         st.markdown(full_response)
-        speak(full_response)
+
     st.session_state.messages.append({"role": "assistant", "content": full_response})
+    st.session_state.voice_response_pending = full_response
+    st.session_state.voice_response_lang = lang
     st.session_state.listening = False
     st.rerun()
 
-# Carga de documentos (simulada)
+# Documentos
 st.divider()
 st.subheader("📄 Subir un documento (simulado)")
 uploaded = st.file_uploader("Sube tu pasaporte/NIE (PDF o imagen)", type=["pdf", "jpg", "png"])

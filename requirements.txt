@@ -5,3 +5,4 @@ SpeechRecognition
 pyaudio
 python-dotenv
 langdetect
+deep-translator

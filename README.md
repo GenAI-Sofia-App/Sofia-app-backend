@@ -1,56 +1,78 @@
+# 🧠 Asistente Financiero para Migrantes
 
-# 🧠 Asistente Financiero para Migrantes (Demo)
+Este proyecto contiene tres asistentes financieros diferentes, cada uno implementado como una app independiente de Streamlit con capacidades de voz, traducción automática y comprensión contextual multilingüe.
 
-Esta es una demo en Streamlit que actúa como asistente financiero inclusivo para personas migrantes. Incluye:
+## ✅ Funcionalidades
 
-- 💬 Chat multilingüe con GPT-4o (texto y voz)
-- 🎙 Entrada por voz usando Whisper API
-- 🔊 Salida por voz con pyttsx3 (o gTTS opcional)
-- 📄 Subida de documentos (simulada)
-- 📚 Base documental local (`base_doc.json`)
+### 1. 🤝 Soy nuevo aquí
+Guía paso a paso para abrir una cuenta bancaria, entender documentación básica, y cómo declarar impuestos en España.
+
+- Usa: `modulo_3_gestion_del_dinero_y_bancos.json`, `modulo_8_declaracion_impuestos.json`, `bancos_productos_funcionalidades_fixed.json`, `modulo_7_recursos_adicionales.json`
+
+### 2. 🏦 Este es tu banco
+Sistema de recomendación de entidades bancarias según tu perfil (edad, tipo de uso, situación migratoria).
+
+- Usa: `bancos_productos_funcionalidades_fixed.json`, `modulo_1_fundamentos_de_la_educacion_financiera.json`
+
+### 3. 💡 Aprende a ahorrar
+Consejos y microeducación en finanzas personales: ahorro, inversión, planificación, deuda.
+
+- Usa: `modulo_1_fundamentos_de_la_educacion_financiera.json`, `modulo_2_presupuesto_personal_y_familiar.json`, `modulo_5_ahorro_e_inversion_basica.json`, `modulo_6_objetivos_financieros_y_planificacion.json`, `modulo_4_deuda_e_intereses.json`
+
+---
 
 ## 🚀 Cómo ejecutar
 
-1. Clona el repositorio o descomprime el ZIP.
+Requiere Python 3.9 o superior.
 
-2. Instala las dependencias:
+1. Instala dependencias:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Crea un archivo `.env`:
+2. Crea tu archivo `.env` en la raíz del proyecto:
 
 ```env
 OPENAI_API_KEY=sk-xxxxx
 ```
 
-4. Ejecuta la app:
-
-Mediante:
-```bash
-streamlit run app.py
-```
-
-o mediante:
+3. Ejecuta cada app desde su carpeta:
 
 ```bash
-python -m streamlit run app.py
+# Desde soy_nuevo_aqui_backend/
+streamlit run soy_nuevo_aqui.py --server.port 8501
+
+# Desde este_es_tu_banco_backend/
+streamlit run este_es_tu_banco.py --server.port 8502
+
+# Desde aprende_a_ahorrar_backend/
+streamlit run aprende_a_ahorrar.py --server.port 8503
 ```
+
+---
 
 ## 📁 Estructura
 
 ```
-asistente_migrante_demo/
-├── app.py               # Aplicación principal en Streamlit
-├── base_doc.json        # Base de conocimiento usada en el prompt
-├── requirements.txt     # Dependencias de Python
-├── .env.example         # Plantilla del archivo de variables
-└── README.md            # Este archivo
+Sofia-app-backend/
+├── docs/                             ← Archivos .json base de conocimiento
+├── soy_nuevo_aqui_backend/
+│   └── soy_nuevo_aqui.py             ← App 1
+├── este_es_tu_banco_backend/
+│   └── este_es_tu_banco.py           ← App 2
+├── aprende_a_ahorrar_backend/
+│   └── aprende_a_ahorrar.py          ← App 3
+├── template/
+│   └── app.py                        ← Base original
+├── requirements.txt
+└── README.md
 ```
 
-## ⚠️ Notas
+---
 
-- Si tienes errores con `pyttsx3`, instala `espeak` en tu sistema o reemplázalo con `gTTS`.
-- Whisper requiere acceso a la API de OpenAI para STT (voz a texto).
+## 🧠 Notas
 
+- Las rutas a los archivos JSON están resueltas con `../docs/*.json` desde cada subcarpeta.
+- Puedes abrir cada herramienta en un `iframe` desde tu frontend Lovable o acceder vía `localhost:{puerto}`.
+- Si usas puerto diferente, asegúrate que esté libre.

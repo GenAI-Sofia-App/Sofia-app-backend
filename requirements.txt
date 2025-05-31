@@ -6,3 +6,5 @@ pyaudio
 python-dotenv
 langdetect
 deep-translator
+chromadb
+sentence-transformers

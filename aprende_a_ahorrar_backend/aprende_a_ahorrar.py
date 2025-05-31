@@ -4,33 +4,59 @@ import os
 import speech_recognition as sr
 import pyttsx3
 import tempfile
-import json
+import threading
 from dotenv import load_dotenv
 from pathlib import Path
-import threading
 from langdetect import detect
 from deep_translator import GoogleTranslator
 
-# Cargar variables de entorno
+# ---- ChromaDB & Embedding Setup ----
+import chromadb
+from sentence_transformers import SentenceTransformer
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+persist_dir = os.path.join(PROJECT_ROOT, "chroma_db")
+print("ChromaDB directory:", persist_dir)
+
+chroma_client = chromadb.PersistentClient(path=persist_dir)
+embed_model = SentenceTransformer("all-MiniLM-L6-v2")
+
+# Use friendly, simple collection names!
+collections = {
+    "fundamentals": chroma_client.get_collection("fundamentals"),
+    "budget": chroma_client.get_collection("budget"),
+    "saving": chroma_client.get_collection("saving"),
+    "planning": chroma_client.get_collection("planning"),
+    "debt": chroma_client.get_collection("debt"),
+}
+
+def query_relevant_chunks(user_query, collection, top_k=2):
+    emb = embed_model.encode([user_query])[0]
+    results = collection.query(
+        query_embeddings=[emb.tolist()],
+        n_results=top_k
+    )
+    return results['documents'][0] if results['documents'] else []
+
+# ---- Streamlit UI and Chatbot ----
+
 env_path = Path(__file__).resolve().parent.parent / '.env'
 load_dotenv(dotenv_path=env_path)
-
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
 st.set_page_config(page_title="Asistente Migrante", layout="centered")
 
 tts_engine = pyttsx3.init()
 available_voices = tts_engine.getProperty('voices')
 tts_engine.setProperty('rate', 150)
 tts_engine.setProperty('volume', 1.0)
-
-# Bloqueo para el TTS
 speak_lock = threading.Lock()
 
 def speak(text, lang="es"):
     def run():
         with speak_lock:
             try:
-                st.session_state.speaking = True  # 🚫 Bloquear entrada mientras habla
+                st.session_state.speaking = True
                 for voice in available_voices:
                     if lang == "en" and "english" in voice.name.lower():
                         tts_engine.setProperty('voice', voice.id)
@@ -43,7 +69,7 @@ def speak(text, lang="es"):
             except RuntimeError as e:
                 print("Error al hablar:", e)
             finally:
-                st.session_state.speaking = False  # ✅ Permitir entrada nuevamente
+                st.session_state.speaking = False
     threading.Thread(target=run).start()
 
 def whisper_transcribe():
@@ -70,11 +96,20 @@ def chat_with_gpt(user_msg):
         except Exception:
             pass
 
+    # Retrieve top relevant context from each module
+    fundamentals_chunks = query_relevant_chunks(translated_input, collections["fundamentals"], top_k=5)
+    budget_chunks = query_relevant_chunks(translated_input, collections["budget"], top_k=5)
+    saving_chunks = query_relevant_chunks(translated_input, collections["saving"], top_k=5)
+    planning_chunks = query_relevant_chunks(translated_input, collections["planning"], top_k=5)
+    debt_chunks = query_relevant_chunks(translated_input, collections["debt"], top_k=5)
+
     prompt_sistema = f"""
-Eres un asistente que enseña educación financiera: cómo ahorrar, invertir y planificar objetivos financieros. Responde de forma clara y motivadora. Usa esta base:
-- Ahorro: {base_knowledge['ahorro']}
-- Presupuesto: {base_knowledge['presupuesto']}
-- Fundamentos: {base_knowledge['fundamentos']}
+Eres un asistente que enseña educación financiera: cómo ahorrar, invertir y planificar objetivos financieros. Responde de forma clara y motivadora. Usa solo el siguiente contexto relevante:
+- Fundamentos: {fundamentals_chunks}
+- Presupuesto: {budget_chunks}
+- Ahorro e inversión: {saving_chunks}
+- Planificación financiera: {planning_chunks}
+- Deuda e intereses: {debt_chunks}
 """
 
     response = client.chat.completions.create(
@@ -96,24 +131,8 @@ Eres un asistente que enseña educación financiera: cómo ahorrar, invertir y p
 
     return full_response, detected_lang
 
-@st.cache_data
-def load_base_knowledge():
-    base = {}
-    with open(Path("../docs/modulo_1_fundamentos_de_la_educacion_financiera.json"), "r", encoding="utf-8") as f:
-        base["fundamentos"] = json.load(f)
-    with open(Path("../docs/modulo_2_presupuesto_personal_y_familiar.json"), "r", encoding="utf-8") as f:
-        base["presupuesto"] = json.load(f)
-    with open(Path("../docs/modulo_5_ahorro_e_inversion_basica.json"), "r", encoding="utf-8") as f:
-        base["ahorro"] = json.load(f)
-    with open(Path("../docs/modulo_6_objetivos_financieros_y_planificacion.json"), "r", encoding="utf-8") as f:
-        base["planificacion"] = json.load(f)
-    with open(Path("../docs/modulo_4_deuda_e_intereses.json"), "r", encoding="utf-8") as f:
-        base["deuda"] = json.load(f)
-    return base
+# ---- Streamlit State Management ----
 
-base_knowledge = load_base_knowledge()
-
-# Estado
 if "messages" not in st.session_state:
     st.session_state.messages = []
 if "listening" not in st.session_state:
@@ -132,7 +151,6 @@ for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
 
-# Entrada texto / voz
 col1, col2 = st.columns([4, 1])
 
 with col1:
@@ -159,14 +177,14 @@ with col2:
             st.session_state.listening = True
             st.rerun()
 
-# Reproducir voz tras rerun
+# Voice output after rerun
 if st.session_state.voice_response_pending:
     with st.status("🗣️ Reproduciendo respuesta...", expanded=False):
         speak(st.session_state.voice_response_pending, st.session_state.voice_response_lang)
     st.session_state.voice_response_pending = None
     st.session_state.voice_response_lang = None
 
-# Voz
+# Voice input
 if st.session_state.listening:
     user_voice = whisper_transcribe()
     detected_lang = detect(user_voice)
@@ -185,7 +203,7 @@ if st.session_state.listening:
     st.session_state.listening = False
     st.rerun()
 
-# Documentos
+# File uploader (placeholder)
 st.divider()
 st.subheader("📄 Subir un documento (simulado)")
 uploaded = st.file_uploader("Sube tu pasaporte/NIE (PDF o imagen)", type=["pdf", "jpg", "png"])

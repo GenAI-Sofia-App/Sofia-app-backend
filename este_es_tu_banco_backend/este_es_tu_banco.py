@@ -93,8 +93,8 @@ def chat_with_gpt(user_msg):
         except Exception:
             pass
 
-    relevant_banks = query_relevant_chunks(translated_input, banks_collection, top_k=4)
-    relevant_fundamentals = query_relevant_chunks(translated_input, fundamentals_collection, top_k=2)
+    relevant_banks = query_relevant_chunks(translated_input, banks_collection, top_k=5)
+    relevant_fundamentals = query_relevant_chunks(translated_input, fundamentals_collection, top_k=3)
 
     system_prompt = f"""
 Eres un asistente que recomienda entidades bancarias y brinda educación financiera al usuario migrante según su perfil (edad, situación migratoria, uso de Bizum, remesas, ahorro).

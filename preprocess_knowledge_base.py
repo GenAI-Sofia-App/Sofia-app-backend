@@ -136,3 +136,59 @@ for idx, (text, emb, meta) in enumerate(zip(fundamentals_texts, fundamentals_emb
     )
 
 print(f"✔ Fundamentals indexed: {len(fundamentals_texts)} documents.")
+
+file_to_collection = {
+    "modulo_2_presupuesto_personal_y_familiar.json": "budget",
+    "modulo_4_deuda_e_intereses.json": "debt",
+    "modulo_5_ahorro_e_inversion_basica.json": "saving",
+    "modulo_6_objetivos_financieros_y_planificacion.json": "planning",
+    "modulo_3_gestion_del_dinero_y_bancos.json": "banking",
+    "modulo_7_recursos_adicionales.json": "resources",
+    "modulo_8_declaracion_impuestos.json": "taxes"
+}
+
+for filename, collection_name in file_to_collection.items():
+    file_path = os.path.join("docs", filename)
+    with open(file_path, encoding="utf-8") as f:
+        data = json.load(f)
+
+    docs = []
+    metas = []
+
+    temas = data.get("temas", [])
+    for tema in temas:
+        tema_id = tema.get("id", "")
+        tema_titulo = tema.get("titulo", "")
+        for item in tema.get("contenido", []):
+            pregunta = item.get("pregunta", "")
+            respuesta = item.get("respuesta", "")
+            doc_text = (
+                f"Tema: {tema_titulo}\n"
+                f"Pregunta: {pregunta}\n"
+                f"Respuesta: {respuesta}"
+            )
+            docs.append(doc_text)
+            metas.append({
+                "tema_id": tema_id,
+                "tema_titulo": tema_titulo,
+                "pregunta": pregunta
+            })
+
+    embeddings = model.encode(docs)
+
+    # Recreate collection to avoid duplicates
+    if collection_name in [col.name for col in client.list_collections()]:
+        client.delete_collection(collection_name)
+    collection = client.create_collection(collection_name)
+
+    for idx, (text, emb, meta) in enumerate(zip(docs, embeddings, metas)):
+        collection.add(
+            ids=[str(idx)],
+            embeddings=[emb.tolist()],
+            documents=[text],
+            metadatas=[meta]
+        )
+
+    print(f"✔ Indexed {filename} as '{collection_name}': {len(docs)} Q&As.")
+
+print("✅ All modules indexed in ChromaDB.")

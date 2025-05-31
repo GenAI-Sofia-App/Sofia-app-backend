@@ -4,17 +4,40 @@ import os
 import speech_recognition as sr
 import pyttsx3
 import tempfile
-import json
 from dotenv import load_dotenv
 from pathlib import Path
 import threading
 from langdetect import detect
 from deep_translator import GoogleTranslator
 
-# Cargar variables de entorno
+# ChromaDB & Embedding setup
+import chromadb
+from sentence_transformers import SentenceTransformer
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+persist_dir = os.path.join(PROJECT_ROOT, "chroma_db")
+chroma_client = chromadb.PersistentClient(path=persist_dir)
+embed_model = SentenceTransformer("all-MiniLM-L6-v2")
+
+collections = {
+    "banks": chroma_client.get_collection("banks"),            # bancos_productos_funcionalidades
+    "banking": chroma_client.get_collection("banking"),        # modulo_3_gestion_del_dinero_y_bancos
+    "taxes": chroma_client.get_collection("taxes"),            # modulo_8_declaracion_impuestos
+    "resources": chroma_client.get_collection("resources"),    # modulo_7_recursos_adicionales
+    # add more modules if needed
+}
+
+def query_relevant_chunks(user_query, collection, top_k=2):
+    emb = embed_model.encode([user_query])[0]
+    results = collection.query(
+        query_embeddings=[emb.tolist()],
+        n_results=top_k
+    )
+    return results['documents'][0] if results['documents'] else []
+
+# Environment variables for OpenAI
 env_path = Path(__file__).resolve().parent.parent / '.env'
 load_dotenv(dotenv_path=env_path)
-
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 st.set_page_config(page_title="Asistente Migrante", layout="centered")
 
@@ -22,15 +45,13 @@ tts_engine = pyttsx3.init()
 available_voices = tts_engine.getProperty('voices')
 tts_engine.setProperty('rate', 150)
 tts_engine.setProperty('volume', 1.0)
-
-# Bloqueo para el TTS
 speak_lock = threading.Lock()
 
 def speak(text, lang="es"):
     def run():
         with speak_lock:
             try:
-                st.session_state.speaking = True  # 🚫 Bloquear entrada mientras habla
+                st.session_state.speaking = True
                 for voice in available_voices:
                     if lang == "en" and "english" in voice.name.lower():
                         tts_engine.setProperty('voice', voice.id)
@@ -43,7 +64,7 @@ def speak(text, lang="es"):
             except RuntimeError as e:
                 print("Error al hablar:", e)
             finally:
-                st.session_state.speaking = False  # ✅ Permitir entrada nuevamente
+                st.session_state.speaking = False
     threading.Thread(target=run).start()
 
 def whisper_transcribe():
@@ -70,10 +91,17 @@ def chat_with_gpt(user_msg):
         except Exception:
             pass
 
+    banks_chunks = query_relevant_chunks(translated_input, collections["banks"], top_k=5)
+    banking_chunks = query_relevant_chunks(translated_input, collections["banking"], top_k=5)
+    taxes_chunks = query_relevant_chunks(translated_input, collections["taxes"], top_k=5)
+    resources_chunks = query_relevant_chunks(translated_input, collections["resources"], top_k=5)
+
     prompt_sistema = f"""
-Eres un asistente financiero para migrantes que necesitan abrir una cuenta bancaria, entender requisitos como el DNI/NIE y conocer cómo declarar impuestos en España. Responde de forma clara, precisa y empática. Usa esta base:
-- Apertura cuenta: {base_knowledge['cuenta_bancaria']}
-- IRPF: {base_knowledge['irpf']}
+Eres un asistente financiero para migrantes que necesitan abrir una cuenta bancaria, entender requisitos como el DNI/NIE y conocer cómo declarar impuestos en España. Responde de forma clara, precisa y empática. Usa solo el siguiente contexto relevante:
+- Productos y entidades bancarias: {banks_chunks}
+- Apertura cuenta y gestión bancaria: {banking_chunks}
+- Declaración de impuestos: {taxes_chunks}
+- Recursos adicionales: {resources_chunks}
 """
 
     response = client.chat.completions.create(
@@ -95,26 +123,8 @@ Eres un asistente financiero para migrantes que necesitan abrir una cuenta banca
 
     return full_response, detected_lang
 
-@st.cache_data
-def load_base_knowledge():
-    base = {}
-    current_dir = Path(__file__).resolve().parent
-    docs_dir = (current_dir / "../docs").resolve()
+# ---- Streamlit State Management ----
 
-    with open(docs_dir / "modulo_3_gestion_del_dinero_y_bancos.json", "r", encoding="utf-8") as f:
-        base["cuenta_bancaria"] = json.load(f)
-    with open(docs_dir / "modulo_8_declaracion_impuestos.json", "r", encoding="utf-8") as f:
-        base["irpf"] = json.load(f)
-    with open(docs_dir / "bancos_productos_funcionalidades.json", "r", encoding="utf-8") as f:
-        base["remesas"] = json.load(f)
-    with open(docs_dir / "modulo_7_recursos_adicionales.json", "r", encoding="utf-8") as f:
-        base["recursos"] = json.load(f)
-
-    return base
-
-base_knowledge = load_base_knowledge()
-
-# Estado
 if "messages" not in st.session_state:
     st.session_state.messages = []
 if "listening" not in st.session_state:
@@ -133,7 +143,6 @@ for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
 
-# Entrada texto / voz
 col1, col2 = st.columns([4, 1])
 
 with col1:

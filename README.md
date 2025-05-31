@@ -37,7 +37,13 @@ pip install -r requirements.txt
 OPENAI_API_KEY=sk-xxxxx
 ```
 
-3. Ejecuta cada app desde su carpeta:
+3. Instancia un cliente de chromadb, procesa y añade los indices:
+
+```bash
+python preprocess_knowledge_base.py
+```
+
+4. Ejecuta cada app desde su carpeta:
 
 ```bash
 # Desde soy_nuevo_aqui_backend/

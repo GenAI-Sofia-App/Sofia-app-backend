@@ -56,6 +56,14 @@ streamlit run este_es_tu_banco.py --server.port 8502
 streamlit run aprende_a_ahorrar.py --server.port 8503
 ```
 
+o si no te funcionan los comandos de arriba:
+
+```bash
+python -m streamlit run soy_nuevo_aqui.py --server.port 8501
+
+python -m streamlit run este_es_tu_banco.py --server.port 8502
+
+python -m streamlit run aprende_a_ahorrar.py --server.port 8503
 ---
 
 ## 📁 Estructura

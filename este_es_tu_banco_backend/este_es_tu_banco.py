@@ -1,6 +1,12 @@
+# This will always point to the project root, even if run from anywhere
+import os
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+persist_dir = os.path.join(PROJECT_ROOT, "chroma_db")
+print("ChromaDB directory:", persist_dir)
+
 import streamlit as st
 from openai import OpenAI
-import os
 import speech_recognition as sr
 import pyttsx3
 import tempfile
@@ -10,6 +16,8 @@ from pathlib import Path
 import threading
 from langdetect import detect
 from deep_translator import GoogleTranslator
+from sentence_transformers import SentenceTransformer
+import chromadb
 
 # Cargar variables de entorno
 env_path = Path(__file__).resolve().parent.parent / '.env'
@@ -22,6 +30,21 @@ tts_engine = pyttsx3.init()
 available_voices = tts_engine.getProperty('voices')
 tts_engine.setProperty('rate', 150)
 tts_engine.setProperty('volume', 1.0)
+
+# Inicializa modelos y conexión
+embed_model = SentenceTransformer("all-MiniLM-L6-v2")
+chroma_client = chromadb.PersistentClient(path=persist_dir)
+banks_collection = chroma_client.get_collection("banks")
+fundamentals_collection = chroma_client.get_collection("fundamentals")
+
+def query_relevant_chunks(text, collection, top_k=3):
+    emb = embed_model.encode([text])[0]
+    results = collection.query(
+        query_embeddings=[emb.tolist()],
+        n_results=top_k
+    )
+    return results['documents'][0]  # List of relevant chunks
+
 
 # Bloqueo para el TTS
 speak_lock = threading.Lock()
@@ -70,15 +93,22 @@ def chat_with_gpt(user_msg):
         except Exception:
             pass
 
-    prompt_sistema = f"""
-Eres un asistente que recomienda entidades bancarias según el perfil del usuario (edad, situación migratoria, uso de Bizum, remesas, ahorro). Sé claro y empático. Usa esta base:
-- Bancos y productos: {base_knowledge['bancos']}
+    relevant_banks = query_relevant_chunks(translated_input, banks_collection, top_k=4)
+    relevant_fundamentals = query_relevant_chunks(translated_input, fundamentals_collection, top_k=2)
+
+    system_prompt = f"""
+Eres un asistente que recomienda entidades bancarias y brinda educación financiera al usuario migrante según su perfil (edad, situación migratoria, uso de Bizum, remesas, ahorro).
+Sé claro y empático. Usa solo este contexto relevante:
+
+- Bancos y productos relevantes: {relevant_banks}
+
+- Conceptos de educación financiera relevantes: {relevant_fundamentals}
 """
 
     response = client.chat.completions.create(
         model="gpt-4o",
         messages=[
-            {"role": "system", "content": prompt_sistema},
+            {"role": "system", "content": system_prompt},
             {"role": "user", "content": translated_input}
         ],
         temperature=0.3
@@ -93,6 +123,7 @@ Eres un asistente que recomienda entidades bancarias según el perfil del usuari
             pass
 
     return full_response, detected_lang
+
 
 @st.cache_data
 def load_base_knowledge():

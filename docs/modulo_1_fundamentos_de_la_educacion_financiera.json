@@ -1,16 +1,215 @@
-{
-    "modulo": "1. Fundamentos de la Educación Financiera",
-    "contenido": {
-        "¿Qué es la educación financiera?": "La educación financiera es el conjunto de conocimientos, habilidades y actitudes que nos permite tomar decisiones económicas acertadas en la vida diaria y planificar nuestro futuro financiero. No se trata solo de saber ahorrar o invertir, sino de comprender los conceptos y productos financieros básicos para desenvolverse con autonomía. La educación financiera permite, por ejemplo, distinguir entre necesidades y deseos, interpretar la información de un extracto bancario, saber comparar productos antes de contratar un crédito o entender la importancia del ahorro para afrontar imprevistos.",
-        "Importancia y beneficios": "Disponer de educación financiera mejora la calidad de vida. Nos ayuda a gestionar mejor el dinero, evitar el sobreendeudamiento, prevenir fraudes, fomentar el ahorro y la planificación, y proteger nuestros derechos como usuarios de servicios financieros. Algunos beneficios concretos son: mayor confianza y autonomía para relacionarse con bancos y entidades financieras, mejor control de los ingresos y gastos, capacidad de afrontar gastos imprevistos, y posibilidad de alcanzar metas personales y familiares.",
-        "Importancia social": "La educación financiera es fundamental para la protección del consumidor y la estabilidad económica. Una sociedad con conocimientos financieros toma decisiones más racionales y responsables, y está menos expuesta a crisis y abusos. Por eso, organismos internacionales como la OCDE, el FMI, el G20 o la Comisión Europea recomiendan promover la educación financiera como herramienta para empoderar a los ciudadanos.",
-        "Situación en España": "Según la Encuesta de Competencias Financieras (ECF) del Banco de España y la CNMV, solo el 52,8% de los españoles respondió correctamente tres preguntas clave sobre conceptos financieros. En detalle, un 65% comprendió la pregunta sobre inflación, pero solo un 41% acertó la de interés compuesto. Esto muestra que más de la mitad de la población tiene dificultades con conceptos clave y refuerza la necesidad de impulsar la educación financiera.",
-        "Iniciativas en España": "Desde 2008, el Banco de España y la CNMV impulsan el Plan de Educación Financiera, con la colaboración de otros organismos como el Ministerio de Asuntos Económicos y la Dirección General de Seguros. El plan promueve materiales didácticos, actividades en centros educativos y colaboraciones con asociaciones civiles. Destacan la web 'Finanzas para todos' y el Día de la Educación Financiera (primer lunes de octubre), con eventos en toda España para sensibilizar sobre la importancia de estos conocimientos.",
-        "Resumen": "Los fundamentos de la educación financiera sientan la base para los demás módulos: comprender la necesidad de gestionar bien el dinero, informarse sobre los productos financieros y desarrollar hábitos sanos. Con estos cimientos, cualquier persona puede mejorar su bienestar financiero y evitar errores costosos."
-    },
-    "enlaces": [
-        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/que-es-la-educacion-financiera/definamos-la-educacion-financiera/",
-        "https://www.cnmv.es/DocPortal/Publicaciones/PlanEducacion/Planeducacionfinanciera_22_25es.pdf",
-        "https://www.funcas.es/odf/la-educacion-financiera-de-los-espanoles-a-examen-encuesta-de-competencias-financieras/"
+[
+  {
+    "concepto": "Cuenta corriente",
+    "definicion": "Cuenta bancaria que permite realizar operaciones habituales como ingresar y retirar dinero, domiciliar recibos o pagar con tarjeta.",
+    "ejemplo": "Una cuenta corriente se utiliza para recibir la nómina y pagar recibos mensuales como el alquiler o la luz.",
+    "preguntas_frecuentes": [
+      {
+        "pregunta": "¿Para qué sirve una cuenta corriente?",
+        "respuesta": "Sirve para gestionar tu dinero del día a día, como recibir ingresos, hacer pagos, transferencias y domiciliar recibos."
+      },
+      {
+        "pregunta": "¿Qué diferencia hay entre cuenta corriente y cuenta de ahorro?",
+        "respuesta": "La cuenta corriente es para operaciones frecuentes; la de ahorro está pensada para guardar dinero y suele dar más intereses."
+      },
+      {
+        "pregunta": "¿Puedo tener varias cuentas corrientes?",
+        "respuesta": "Sí, puedes tener tantas cuentas corrientes como quieras, incluso en diferentes bancos."
+      }
     ]
-}
+  },
+  {
+    "concepto": "Interés compuesto",
+    "definicion": "Interés que se calcula sobre el capital inicial más los intereses generados en periodos anteriores.",
+    "ejemplo": "Si inviertes 1.000€ al 5% anual con interés compuesto, al segundo año se calcularán los intereses sobre 1.050€, no solo sobre 1.000€.",
+    "preguntas_frecuentes": [
+      {
+        "pregunta": "¿Qué es el interés compuesto?",
+        "respuesta": "Es un interés que se suma al capital y genera nuevos intereses sobre sí mismo en cada periodo."
+      },
+      {
+        "pregunta": "¿Cómo se calcula el interés compuesto?",
+        "respuesta": "Se calcula sumando los intereses generados a lo largo del tiempo al capital, y cada año los intereses se aplican sobre ese nuevo total."
+      },
+      {
+        "pregunta": "¿Por qué es importante el interés compuesto en el ahorro?",
+        "respuesta": "Porque ayuda a que tu dinero crezca más rápido, ya que los intereses generan más intereses a lo largo del tiempo."
+      }
+    ]
+  },
+  {
+    "concepto": "TAE (Tasa Anual Equivalente)",
+    "definicion": "Indicador del coste o rendimiento efectivo de un producto financiero, expresado en porcentaje anual, que incluye intereses y comisiones.",
+    "ejemplo": "Un préstamo con un TIN del 6% pero comisiones de apertura y mantenimiento puede tener una TAE del 7,5%.",
+    "preguntas_frecuentes": [
+      {
+        "pregunta": "¿Qué diferencia hay entre TAE y TIN?",
+        "respuesta": "La TAE incluye tanto el tipo de interés nominal (TIN) como comisiones y gastos, mostrando el coste o rentabilidad real anual."
+      },
+      {
+        "pregunta": "¿Cómo afecta la TAE a mi hipoteca?",
+        "respuesta": "Cuanto mayor sea la TAE, más pagarás por tu hipoteca. Es el dato más importante para comparar préstamos."
+      },
+      {
+        "pregunta": "¿Por qué es importante fijarse en la TAE?",
+        "respuesta": "Porque refleja el coste o beneficio total real de un producto financiero y permite compararlo con otros."
+      }
+    ]
+  },
+  {
+    "concepto": "Hipoteca",
+    "definicion": "Préstamo a largo plazo concedido para la compra de una vivienda, donde el inmueble queda como garantía de pago.",
+    "ejemplo": "Para comprar una casa de 200.000€, puedes solicitar una hipoteca al banco y devolverlo en cuotas mensuales durante 30 años.",
+    "preguntas_frecuentes": [
+      {
+        "pregunta": "¿Qué tipos de hipoteca existen?",
+        "respuesta": "Principalmente, existen hipotecas a tipo fijo, variable y mixto."
+      },
+      {
+        "pregunta": "¿Cuáles son los requisitos para pedir una hipoteca en España?",
+        "respuesta": "Tener ingresos estables, aportar un ahorro inicial (normalmente el 20%) y no tener deudas excesivas."
+      },
+      {
+        "pregunta": "¿Qué ocurre si no puedo pagar la hipoteca?",
+        "respuesta": "El banco puede quedarse con la vivienda y, si no cubre la deuda, seguir reclamando el resto del dinero."
+      }
+    ]
+  },
+  {
+    "concepto": "Fondos de inversión",
+    "definicion": "Instrumento de ahorro colectivo gestionado por una entidad, donde los inversores aportan dinero y se invierte en diferentes activos.",
+    "ejemplo": "Un fondo de inversión puede invertir en acciones, bonos y otros activos para diversificar el riesgo.",
+    "preguntas_frecuentes": [
+      {
+        "pregunta": "¿Qué es un fondo de inversión?",
+        "respuesta": "Es un producto donde muchas personas ponen su dinero en común para invertirlo, gestionado por profesionales."
+      },
+      {
+        "pregunta": "¿Qué ventajas tiene invertir en fondos?",
+        "respuesta": "Diversificas el riesgo, accedes a mercados internacionales y la gestión la realiza un experto."
+      },
+      {
+        "pregunta": "¿Hay riesgo de perder dinero en un fondo de inversión?",
+        "respuesta": "Sí, como en toda inversión, existe el riesgo de perder parte del capital."
+      }
+    ]
+  },
+  {
+    "concepto": "Inflación",
+    "definicion": "Aumento generalizado y sostenido de los precios de bienes y servicios en un país durante un periodo de tiempo.",
+    "ejemplo": "Si la inflación anual es del 3%, el precio de una barra de pan que hoy cuesta 1€, costará 1,03€ el próximo año.",
+    "preguntas_frecuentes": [
+      {
+        "pregunta": "¿Cómo afecta la inflación a mis ahorros?",
+        "respuesta": "La inflación reduce el poder adquisitivo de tus ahorros, ya que los precios suben."
+      },
+      {
+        "pregunta": "¿Por qué suben los precios cada año?",
+        "respuesta": "Suben por factores como aumento de la demanda, costes de producción o políticas económicas."
+      },
+      {
+        "pregunta": "¿Qué puedo hacer para protegerme de la inflación?",
+        "respuesta": "Invertir en productos que superen la inflación, como fondos de inversión o bienes raíces."
+      }
+    ]
+  },
+  {
+    "concepto": "IBAN",
+    "definicion": "Código internacional que identifica una cuenta bancaria a nivel europeo, necesario para realizar transferencias.",
+    "ejemplo": "El IBAN de una cuenta española comienza por ES, seguido de 22 dígitos.",
+    "preguntas_frecuentes": [
+      {
+        "pregunta": "¿Para qué sirve el IBAN?",
+        "respuesta": "Sirve para identificar tu cuenta de forma única en transferencias nacionales e internacionales."
+      },
+      {
+        "pregunta": "¿Cómo puedo saber mi IBAN?",
+        "respuesta": "Lo puedes consultar en tu banco, en la app bancaria o en tus extractos bancarios."
+      },
+      {
+        "pregunta": "¿Es seguro compartir mi IBAN?",
+        "respuesta": "Sí, es seguro compartir el IBAN, pero nunca compartas tus claves ni contraseñas."
+      }
+    ]
+  },
+  {
+    "concepto": "Tarjeta de crédito",
+    "definicion": "Tarjeta que permite realizar pagos hasta un límite de crédito fijado por el banco, devolviendo el dinero en un plazo acordado.",
+    "ejemplo": "Con una tarjeta de crédito puedes pagar una compra y devolver el importe a final de mes o fraccionarlo.",
+    "preguntas_frecuentes": [
+      {
+        "pregunta": "¿Qué diferencia hay entre tarjeta de crédito y de débito?",
+        "respuesta": "La de débito solo permite gastar el dinero que tienes en tu cuenta, la de crédito te permite financiar pagos hasta un límite."
+      },
+      {
+        "pregunta": "¿Qué pasa si no pago la tarjeta de crédito?",
+        "respuesta": "Te cobrarán intereses y comisiones, y si sigues sin pagar puede afectar a tu historial crediticio."
+      },
+      {
+        "pregunta": "¿Puedo sacar dinero en efectivo con la tarjeta de crédito?",
+        "respuesta": "Sí, pero normalmente pagarás comisiones e intereses por hacerlo."
+      }
+    ]
+  },
+  {
+    "concepto": "Presupuesto personal",
+    "definicion": "Herramienta para planificar y controlar los ingresos y gastos personales o familiares.",
+    "ejemplo": "Crear un presupuesto ayuda a saber cuánto dinero puedes destinar a ocio después de pagar los gastos fijos.",
+    "preguntas_frecuentes": [
+      {
+        "pregunta": "¿Cómo hago un presupuesto personal?",
+        "respuesta": "Anota todos tus ingresos y gastos, clasifícalos y revisa que no gastas más de lo que ingresas."
+      },
+      {
+        "pregunta": "¿Por qué es importante llevar un presupuesto?",
+        "respuesta": "Te ayuda a controlar tus finanzas, evitar deudas y alcanzar tus objetivos económicos."
+      },
+      {
+        "pregunta": "¿Existen aplicaciones para controlar mi presupuesto?",
+        "respuesta": "Sí, hay muchas apps como Fintonic, Mint o la propia app de tu banco."
+      }
+    ]
+  },
+  {
+    "concepto": "Deuda",
+    "definicion": "Obligación que tiene una persona de pagar o devolver algo, generalmente dinero, a otra persona o entidad.",
+    "ejemplo": "Un préstamo personal o el saldo de una tarjeta de crédito son ejemplos de deudas.",
+    "preguntas_frecuentes": [
+      {
+        "pregunta": "¿Cómo puedo salir de deudas?",
+        "respuesta": "Haz un plan de pagos, reduce gastos y prioriza liquidar las deudas con más intereses."
+      },
+      {
+        "pregunta": "¿Es malo tener deudas?",
+        "respuesta": "No siempre, pero hay que gestionarlas bien. Algunas deudas, como una hipoteca, pueden ser positivas si son asequibles."
+      },
+      {
+        "pregunta": "¿Qué pasa si no pago mis deudas?",
+        "respuesta": "Pueden cobrarte intereses y comisiones, y pueden llegar a reclamarte judicialmente la deuda."
+      }
+    ]
+  },
+  {
+    "concepto": "SWIFT",
+    "definicion": "Código internacional utilizado para identificar bancos y entidades financieras en transferencias internacionales.",
+    "ejemplo": "Si quieres enviar dinero desde España a una cuenta en el extranjero, necesitarás el código SWIFT del banco receptor.",
+    "preguntas_frecuentes": [
+      {
+        "pregunta": "¿Qué es el código SWIFT?",
+        "respuesta": "Es un código que identifica a un banco concreto en transferencias internacionales."
+      },
+      {
+        "pregunta": "¿Dónde encuentro el SWIFT de mi banco?",
+        "respuesta": "En la web de tu banco, en tu área de cliente o preguntando directamente en tu sucursal."
+      },
+      {
+        "pregunta": "¿Es lo mismo el SWIFT que el IBAN?",
+        "respuesta": "No, el IBAN identifica tu cuenta bancaria y el SWIFT identifica el banco."
+      },
+      {
+        "pregunta": "¿Cuándo necesito usar el código SWIFT?",
+        "respuesta": "Cuando haces o recibes transferencias internacionales fuera de España o la zona SEPA."
+      }
+    ]
+  }
+]

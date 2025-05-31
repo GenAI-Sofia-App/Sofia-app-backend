@@ -10,7 +10,47 @@
         },
         {
           "pregunta": "¿Qué es el IRPF?",
-          "respuesta": "El IRPF es el Impuesto sobre la Renta de las Personas Físicas. Es el principal impuesto que grava los ingresos obtenidos por personas residentes en España, como salarios, pensiones, alquileres o ganancias patrimoniales."
+          "respuesta": "El IRPF es el Impuesto sobre la Renta de las Personas Físicas. Grava los ingresos obtenidos por las personas residentes en España, como sueldos, pensiones, rentas de alquiler, ganancias de inversiones y otros rendimientos."
+        },
+        {
+          "pregunta": "¿Qué ingresos están sujetos al IRPF?",
+          "respuesta": "El IRPF grava los rendimientos del trabajo (sueldos, pensiones), del capital (intereses, dividendos, alquileres), actividades económicas (autónomos), ganancias patrimoniales (venta de vivienda, acciones) y algunas imputaciones de renta."
+        }
+      ]
+    },
+    {
+      "id": "estructura_irpf",
+      "titulo": "Cómo funciona el IRPF: tramos y pagadores",
+      "contenido": [
+        {
+          "pregunta": "¿Cómo se calculan los impuestos del IRPF?",
+          "respuesta": "El IRPF es un impuesto progresivo: a mayores ingresos, mayor porcentaje de impuestos. Hay varios tramos de gravamen que se aplican por partes al total de la base imponible."
+        },
+        {
+          "pregunta": "¿Cuáles son los tramos del IRPF?",
+          "respuesta": "Para 2024, los tramos estatales van aproximadamente del 19% al 47%, dependiendo del nivel de ingresos. A esto se suman los tramos autonómicos. Puedes consultar los valores exactos en la web de la Agencia Tributaria."
+        },
+        {
+          "pregunta": "¿Qué pasa si tengo más de un pagador?",
+          "respuesta": "Si tienes más de un pagador y el segundo pagador te ha abonado más de 1.500 euros, el límite para estar exento de declarar baja de 22.000 a 15.000 euros anuales. Es importante revisar este detalle en tu caso."
+        }
+      ]
+    },
+    {
+      "id": "minimos_deducciones_irpf",
+      "titulo": "Mínimos personales y familiares, y deducciones IRPF",
+      "contenido": [
+        {
+          "pregunta": "¿Qué es el mínimo personal y familiar?",
+          "respuesta": "El IRPF reconoce un mínimo exento para cubrir las necesidades básicas del contribuyente y su familia. Este mínimo no tributa y depende de la situación personal (edad, discapacidad, hijos o ascendientes a cargo, etc.)."
+        },
+        {
+          "pregunta": "¿Qué deducciones suelen aplicarse en el IRPF?",
+          "respuesta": "Las más frecuentes son: por alquiler de vivienda habitual, por inversión en vivienda habitual (para compras anteriores a 2013), por donativos, aportaciones a planes de pensiones, por maternidad, por hijos o familiares a cargo y por cuotas sindicales, entre otras."
+        },
+        {
+          "pregunta": "¿Cómo afectan las deducciones al resultado de la declaración?",
+          "respuesta": "Las deducciones reducen la cantidad final de impuestos a pagar o aumentan la devolución. Es importante revisar a cuáles tienes derecho y aplicarlas correctamente."
         }
       ]
     },

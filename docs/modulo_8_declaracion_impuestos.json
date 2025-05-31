@@ -1,18 +1,144 @@
 {
-  "modulo": "8. Cómo declarar impuestos en España (personas físicas)",
-  "contenido": {
-    "¿Qué es la declaración de la renta?": "La declaración de la renta, también conocida como IRPF (Impuesto sobre la Renta de las Personas Físicas), es un tributo anual que grava los ingresos obtenidos por los residentes en España. Incluye salarios, pensiones, actividades económicas, alquileres, intereses, dividendos y ganancias patrimoniales. La Agencia Tributaria (AEAT) se encarga de su gestión.",
-    "¿Quién está obligado a declarar?": "Deben presentar la declaración de la renta:\n- Personas que hayan percibido más de 22.000 € anuales de un solo pagador.\n- Más de 15.000 € de varios pagadores, si el segundo pagador supera los 1.500 €.\n- Autónomos, arrendadores de inmuebles, perceptores de rendimientos de capital o ganancias patrimoniales.\n- Personas que soliciten devoluciones o deducciones.\nExisten excepciones, por lo que se recomienda consultar cada año los límites actualizados en la web de la AEAT.",
-    "Plazos y fechas clave": "La campaña de la renta comienza habitualmente en abril y finaliza a finales de junio.\n- Abril: Inicio de la presentación por internet.\n- Mayo-junio: Atención telefónica o presencial (con cita previa).\n- Junio: Último día para presentar la declaración y domiciliar pagos.\nFechas exactas varían cada año y se publican en el calendario fiscal de la Agencia Tributaria.",
-    "Cómo hacer la declaración": "1. Acceder a la web de la Agencia Tributaria (https://www.agenciatributaria.es).\n2. Identificarse con Cl@ve PIN, certificado digital o número de referencia.\n3. Acceder al borrador de declaración (Renta Web) y revisar los datos.\n4. Modificar o añadir información (por ejemplo, deducciones, rendimientos, etc.).\n5. Confirmar y presentar.\n6. Seleccionar forma de pago (ingreso, fraccionado, domiciliado) o devolución.\nSe puede presentar online, por teléfono o presencialmente en oficinas de la AEAT (con cita).",
-    "Deducciones comunes": "- Deducción por vivienda habitual (para hipotecas antiguas).\n- Deducción por alquiler (en algunas comunidades autónomas).\n- Aportaciones a planes de pensiones.\n- Donativos a ONGs y entidades sin ánimo de lucro.\n- Deducción por maternidad o por familia numerosa.\n- Reducción por rendimientos del trabajo y mínimos personales/familiares.\nEs fundamental revisar las deducciones autonómicas que pueden variar según la comunidad.",
-    "Errores frecuentes y consejos": "• No revisar los datos fiscales: pueden faltar rendimientos de alquiler o cuentas compartidas.\n• Olvidar incluir ingresos del extranjero o criptomonedas.\n• No aplicar deducciones por desconocimiento.\n• Presentar fuera de plazo: puede conllevar sanciones.\n• Consejo: usar simuladores de renta y guardar copia de todo lo presentado. En caso de duda, se recomienda consultar con un asesor o utilizar el servicio telefónico de la AEAT.",
-    "Resumen": "Declarar la renta correctamente permite cumplir con las obligaciones fiscales, evitar sanciones y acceder a devoluciones o beneficios. Revisar los datos, conocer las deducciones aplicables y respetar los plazos son claves para una gestión eficaz."
-  },
-  "enlaces": [
-    "https://www.agenciatributaria.es/AEAT.internet/Renta.shtml",
-    "https://www.agenciatributaria.es/AEAT.internet/Renta/Calendario_de_la_Renta/Campana_Renta.shtml",
-    "https://sede.agenciatributaria.gob.es/Sede/Renta.shtml",
-    "https://www.agenciatributaria.es/AEAT.internet/Inicio/_Segmentos_/Ciudadanos/_Campanas/_Renta/Renta.shtml"
+  "temas": [
+    {
+      "id": "conceptos_basicos_impuestos",
+      "titulo": "Conceptos básicos sobre impuestos en España",
+      "contenido": [
+        {
+          "pregunta": "¿Qué es la declaración de la renta en España?",
+          "respuesta": "La declaración de la renta es el trámite anual por el cual las personas físicas informan a la Agencia Tributaria (Hacienda) sobre sus ingresos, deducciones y situación personal, para calcular si deben pagar impuestos o recibir una devolución."
+        },
+        {
+          "pregunta": "¿Qué es el IRPF?",
+          "respuesta": "El IRPF es el Impuesto sobre la Renta de las Personas Físicas. Es el principal impuesto que grava los ingresos obtenidos por personas residentes en España, como salarios, pensiones, alquileres o ganancias patrimoniales."
+        }
+      ]
+    },
+    {
+      "id": "quien_debe_declarar",
+      "titulo": "¿Quiénes deben presentar la declaración?",
+      "contenido": [
+        {
+          "pregunta": "¿Quién está obligado a hacer la declaración de la renta?",
+          "respuesta": "Deben declarar la renta la mayoría de las personas que han residido en España más de 183 días en el año y han recibido ingresos. Existen excepciones según el monto y tipo de ingreso; por ejemplo, si solo tienes un pagador y tus ingresos anuales no superan los 22.000 euros, puedes estar exento."
+        },
+        {
+          "pregunta": "¿Debo declarar si soy migrante y trabajo en España?",
+          "respuesta": "Sí, si resides en España más de la mitad del año y percibes ingresos aquí, generalmente debes presentar la declaración de la renta como residente fiscal."
+        }
+      ]
+    },
+    {
+      "id": "plazos_procedimiento",
+      "titulo": "Plazos y procedimiento para declarar",
+      "contenido": [
+        {
+          "pregunta": "¿Cuándo se presenta la declaración de la renta?",
+          "respuesta": "La campaña de la renta suele comenzar en abril y termina a finales de junio de cada año, refiriéndose a los ingresos del año anterior. Las fechas exactas las publica cada año la Agencia Tributaria."
+        },
+        {
+          "pregunta": "¿Cómo se presenta la declaración?",
+          "respuesta": "Puedes presentar la declaración por internet en la web de la Agencia Tributaria (www.agenciatributaria.es), presencialmente en oficinas de Hacienda (con cita previa) o por teléfono en algunos casos."
+        }
+      ]
+    },
+    {
+      "id": "documentacion_necesaria",
+      "titulo": "Documentación necesaria",
+      "contenido": [
+        {
+          "pregunta": "¿Qué documentos necesito para hacer la declaración?",
+          "respuesta": "Necesitarás: DNI o NIE, número de referencia de la Agencia Tributaria, certificado de retenciones del empleador, justificantes de ingresos y gastos deducibles (alquiler, donaciones, hipoteca, hijos, etc.), datos bancarios y justificantes de inversiones si los hubiera."
+        }
+      ]
+    },
+    {
+      "id": "como_funciona_borrador",
+      "titulo": "El borrador y cómo revisarlo",
+      "contenido": [
+        {
+          "pregunta": "¿Qué es el borrador de la renta?",
+          "respuesta": "Es un documento que la Agencia Tributaria prepara automáticamente con la información que tiene sobre tus ingresos y situación personal. Debes revisarlo y confirmar que todo esté correcto antes de presentarlo."
+        },
+        {
+          "pregunta": "¿Puedo modificar el borrador?",
+          "respuesta": "Sí, puedes modificarlo si falta información o hay datos incorrectos, añadiendo o corrigiendo deducciones y datos personales antes de enviarlo."
+        }
+      ]
+    },
+    {
+      "id": "deducciones_comunes",
+      "titulo": "Deducciones y ventajas fiscales",
+      "contenido": [
+        {
+          "pregunta": "¿Qué gastos o situaciones dan derecho a deducciones?",
+          "respuesta": "Algunas deducciones comunes son: por alquiler de vivienda habitual, por hijos o familiares a cargo, por donativos, por aportaciones a planes de pensiones, inversión en vivienda habitual, gastos por guardería, y deducción por maternidad."
+        },
+        {
+          "pregunta": "¿Me puedes dar un ejemplo de deducción?",
+          "respuesta": "Por ejemplo, si pagas alquiler de tu vivienda habitual y cumples los requisitos, puedes deducir un porcentaje de lo pagado durante el año, lo que reduce el impuesto a pagar."
+        },
+        {
+          "pregunta": "¿Qué ocurre si tengo derecho a devolución?",
+          "respuesta": "Si tras calcular tu declaración has pagado más impuestos de los debidos, Hacienda te devolverá la diferencia en tu cuenta bancaria, generalmente en pocas semanas."
+        }
+      ]
+    },
+    {
+      "id": "casos_especiales",
+      "titulo": "Casos especiales: becas, ayudas y rentas extranjeras",
+      "contenido": [
+        {
+          "pregunta": "¿Debo declarar las becas o ayudas que recibo?",
+          "respuesta": "Las becas públicas para estudios y formación generalmente están exentas de tributar hasta ciertos límites, pero otras ayudas pueden estar sujetas a impuestos. Consulta siempre el origen y el concepto de la beca/ayuda."
+        },
+        {
+          "pregunta": "¿Qué hago si recibo ingresos o rentas de otro país?",
+          "respuesta": "Si eres residente fiscal en España, debes declarar todos tus ingresos mundiales, incluidos los del extranjero. Es posible evitar la doble imposición según convenios internacionales, pero debes informar a Hacienda."
+        },
+        {
+          "pregunta": "¿Cómo declaro ayudas públicas como el Ingreso Mínimo Vital o subsidios?",
+          "respuesta": "Este tipo de ayudas suelen aparecer ya reflejadas en tu borrador. Algunas están exentas y otras tributan según el caso. Consulta las instrucciones de Hacienda para cada tipo de ayuda."
+        }
+      ]
+    },
+    {
+      "id": "declaracion_conjunta_familiar",
+      "titulo": "Declaración conjunta y familiar",
+      "contenido": [
+        {
+          "pregunta": "¿Qué es la declaración conjunta?",
+          "respuesta": "Es una modalidad en la que los miembros de una unidad familiar (normalmente, matrimonio y/o hijos menores) pueden declarar juntos sus ingresos y deducciones. Puede ser ventajosa en ciertos casos, especialmente si uno de los miembros tiene ingresos bajos o nulos."
+        },
+        {
+          "pregunta": "¿Qué debo tener en cuenta para elegir entre declaración individual o conjunta?",
+          "respuesta": "Lo mejor es calcular ambas opciones antes de presentar, ya que solo se puede escoger una cada año. Utiliza el simulador de la Agencia Tributaria o consulta con un asesor fiscal."
+        }
+      ]
+    },
+    {
+      "id": "consejos_practicos",
+      "titulo": "Consejos prácticos y errores comunes",
+      "contenido": [
+        {
+          "pregunta": "¿Cuáles son los errores más frecuentes al declarar la renta?",
+          "respuesta": "Olvidar incluir ingresos, no revisar el borrador, no aplicar deducciones a las que se tiene derecho o declarar fuera de plazo. Revisa bien cada dato antes de enviar."
+        },
+        {
+          "pregunta": "¿Dónde pedir ayuda para hacer la declaración?",
+          "respuesta": "Puedes solicitar ayuda gratuita en la Agencia Tributaria, preguntar a un gestor o asesor fiscal, o utilizar programas y simuladores en la web de Hacienda."
+        }
+      ]
+    },
+    {
+      "id": "multas_sanciones",
+      "titulo": "Multas y sanciones",
+      "contenido": [
+        {
+          "pregunta": "¿Qué pasa si no presento la declaración a tiempo?",
+          "respuesta": "Si no presentas la declaración a tiempo, puedes recibir una multa o sanción económica, además de tener que pagar los impuestos pendientes con recargo."
+        }
+      ]
+    }
   ]
 }

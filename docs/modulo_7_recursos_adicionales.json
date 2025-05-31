@@ -1,17 +1,56 @@
 {
-    "modulo": "7. Recursos adicionales",
-    "contenido": {
-        "Portales oficiales y recursos online": "- Banco de España: clientebancario.bde.es ofrece información sobre productos bancarios, simuladores y consejos de seguridad.\n- CNMV: cnmv.es dispone de guías, alertas sobre chiringuitos financieros y recursos para inversores.\n- Finanzas para todos: finanzasparatodos.es centraliza materiales educativos, herramientas y vídeos divulgativos.\n- Seguridad Social y Agencia Tributaria: webs oficiales con información sobre pensiones, prestaciones y fiscalidad.",
-        "Herramientas prácticas": "- Simuladores de hipotecas, préstamos, TAE y comparadores bancarios.\n- Calculadoras de IRPF, cotizaciones y jubilación.\n- Aplicaciones móviles para gestionar el presupuesto y el ahorro.\nEstas herramientas permiten anticipar resultados, comparar productos y tomar decisiones informadas.",
-        "Educación continua": "- Guías descargables, vídeos formativos, webinars y cursos gratuitos sobre finanzas básicas.\n- Cursos MOOC en plataformas como Coursera o EdX, en colaboración con universidades.\n- Libros en español sobre economía doméstica y finanzas personales.\n- Contenidos de ONGs y fundaciones de bancos para públicos específicos (jóvenes, mayores, emprendedores, etc.).",
-        "Asesoramiento y ayuda": "- Servicios de atención al cliente de bancos y organismos supervisores.\n- Oficinas de consumo y defensor del cliente financiero.\n- Asociaciones de consumidores y plataformas de reclamación online.\n- Teléfonos y formularios web para consultas y reclamaciones.",
-        "Resumen": "Existen múltiples recursos y herramientas para ampliar conocimientos financieros, resolver dudas, simular operaciones y proteger al consumidor. Acudir a fuentes oficiales y contrastadas es clave para evitar fraudes y tomar decisiones acertadas."
+  "temas": [
+    {
+      "id": "portales_oficiales",
+      "titulo": "Portales oficiales y recursos online",
+      "contenido": [
+        {
+          "pregunta": "¿Dónde encuentro información oficial sobre impuestos y trámites en España?",
+          "respuesta": "La página principal es la Agencia Tributaria: https://www.agenciatributaria.es/. Allí puedes consultar información, presentar la declaración y acceder a servicios y simuladores."
+        },
+        {
+          "pregunta": "¿Existen simuladores para calcular impuestos?",
+          "respuesta": "Sí. En la web de la Agencia Tributaria puedes usar el simulador Renta WEB Open para practicar o estimar tu declaración de la renta antes de presentarla oficialmente."
+        }
+      ]
     },
-    "enlaces": [
-        "https://clientebancario.bde.es",
-        "https://www.cnmv.es",
-        "https://finanzasparatodos.es",
-        "https://www.seg-social.es",
-        "https://www.agenciatributaria.es"
-    ]
+    {
+      "id": "asesoramiento_ayuda",
+      "titulo": "Asesoramiento y ayuda gratuita",
+      "contenido": [
+        {
+          "pregunta": "¿Dónde puedo recibir ayuda gratuita para hacer la declaración de la renta?",
+          "respuesta": "La Agencia Tributaria ofrece ayuda telefónica y presencial (con cita previa) durante la campaña de la renta. Además, muchas comunidades autónomas y ayuntamientos ofrecen servicios de asesoramiento fiscal gratuito para ciudadanos y colectivos vulnerables."
+        },
+        {
+          "pregunta": "¿Hay teléfonos o canales de contacto para dudas?",
+          "respuesta": "Sí. El teléfono general de información tributaria es 91 554 87 70 o 901 33 55 33. También puedes hacer consultas por Internet a través de la Sede Electrónica de la Agencia Tributaria."
+        }
+      ]
+    },
+    {
+      "id": "otros_recursos_utiles",
+      "titulo": "Otros recursos útiles y educación financiera",
+      "contenido": [
+        {
+          "pregunta": "¿Qué otros portales pueden ayudarme con educación financiera o fiscal?",
+          "respuesta": "Puedes consultar la web del Banco de España (https://www.bde.es/), la Comisión Nacional del Mercado de Valores (https://www.cnmv.es/), y el portal Finanzas para Todos (https://www.finanzasparatodos.es/) para recursos educativos, guías y consejos prácticos."
+        },
+        {
+          "pregunta": "¿Hay asociaciones o entidades que orienten a migrantes y familias?",
+          "respuesta": "Sí. ONG como Cáritas, Cruz Roja, CEAR y ACCEM suelen tener servicios de orientación fiscal, legal y financiera para migrantes. Además, muchas asociaciones de consumidores ofrecen asesoramiento sobre derechos financieros."
+        }
+      ]
+    },
+    {
+      "id": "preguntas_frecuentes",
+      "titulo": "Preguntas frecuentes y foros de consulta",
+      "contenido": [
+        {
+          "pregunta": "¿Existen foros o espacios donde resolver dudas comunes?",
+          "respuesta": "Sí, la propia web de la Agencia Tributaria tiene un apartado de preguntas frecuentes y foros de consulta. También hay foros y comunidades online (como Rankia o Forocoches en su sección de economía) donde usuarios comparten experiencias y resuelven dudas, pero la información oficial siempre debe contrastarse."
+        }
+      ]
+    }
+  ]
 }

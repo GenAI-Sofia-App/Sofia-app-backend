@@ -1,18 +1,154 @@
 {
-    "modulo": "4. Deuda e intereses",
-    "contenido": {
-        "¿Qué es la deuda?": "La deuda es la obligación de devolver una cantidad de dinero recibida en préstamo, junto con los intereses y comisiones pactados. Es útil para financiar compras importantes o hacer frente a gastos imprevistos, pero conlleva el compromiso de devolver el dinero en las condiciones acordadas.",
-        "Tipos de deuda": "- Préstamos personales: Se destinan a financiar bienes de consumo o necesidades puntuales. El importe, el plazo y el interés están fijados en el contrato.\n- Créditos rápidos o al consumo: Se obtienen de forma inmediata y suelen tener intereses altos.\n- Préstamo hipotecario: Se utiliza para la compra de vivienda y tiene un plazo largo y tipos de interés más bajos.\n- Tarjetas de crédito: Permiten financiar compras o disponer de efectivo. Si no se paga el saldo a fin de mes, se aplican intereses muy elevados.\nEs importante conocer el coste real de cada tipo de deuda y no acumular varios préstamos al mismo tiempo.",
-        "Intereses y TAE": "El interés es el precio que se paga por recibir un préstamo. Puede ser fijo (no varía en el tiempo) o variable (referenciado a un índice como el euríbor). La TAE (Tasa Anual Equivalente) es el indicador que refleja el coste efectivo total del préstamo, incluyendo intereses, comisiones y otros gastos. Permite comparar ofertas de forma sencilla.\nEl interés compuesto hace que la deuda crezca más rápidamente si no se pagan las cuotas, porque los intereses se suman al capital pendiente.",
-        "Riesgos del endeudamiento": "El principal riesgo es el sobreendeudamiento, que se produce cuando los ingresos no son suficientes para cubrir las deudas y los gastos básicos. Puede llevar a impagos, recargos, inclusión en ficheros de morosos, embargo de bienes y dificultades para acceder a nuevos créditos.\nSe recomienda que las deudas (excluida la hipoteca) no superen el 30-35% de los ingresos mensuales.",
-        "Consejos para un endeudamiento responsable": "• Valorar si el préstamo es realmente necesario y si se podrá devolver en plazo.\n• Comparar distintas ofertas y leer bien el contrato, prestando atención a la TAE y las comisiones.\n• Evitar solicitar créditos rápidos o usar la tarjeta de crédito para gastos habituales.\n• Pagar puntualmente para evitar recargos e intereses de demora.\n• En caso de dificultad, negociar con la entidad y no encadenar un préstamo tras otro para pagar deudas anteriores.",
-        "Ficheros de morosos": "Son registros donde se anotan las personas o empresas con deudas impagadas. La inclusión en estos ficheros dificulta el acceso al crédito y puede afectar a la vida cotidiana. Antes de ser incluido, la persona debe ser informada y puede ejercer su derecho de rectificación si la deuda no es correcta.",
-        "Resumen": "La deuda debe utilizarse con prudencia y solo si es realmente necesaria. Conocer el coste total, comparar ofertas y calcular la capacidad de pago ayuda a evitar el sobreendeudamiento. Una gestión responsable de la deuda es clave para la salud financiera."
+  "temas": [
+    {
+      "id": "conceptos_basicos_deuda",
+      "titulo": "Conceptos básicos de deuda",
+      "contenido": [
+        {
+          "pregunta": "¿Qué es una deuda?",
+          "respuesta": "La deuda es una obligación de devolver dinero que se ha recibido en préstamo, ya sea de una persona, banco, tienda u otra entidad. Se debe devolver según las condiciones acordadas, normalmente con intereses."
+        },
+        {
+          "pregunta": "¿Cuándo puede ser útil endeudarse?",
+          "respuesta": "Endeudarse puede ser útil para cubrir emergencias, invertir en educación, salud, vivienda o negocios. No se recomienda endeudarse para gastos innecesarios o compras impulsivas."
+        }
+      ]
     },
-    "enlaces": [
-        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/prestamos/que-es-la-tae/",
-        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/prestamos/que-es-un-prestamo/",
-        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/prestamos/simuladores-prestamos/",
-        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/prestamos/tarjetas-de-credito/"
-    ]
+    {
+      "id": "tipos_deuda",
+      "titulo": "Tipos de deuda",
+      "contenido": [
+        {
+          "pregunta": "¿Qué tipos de deuda existen?",
+          "respuesta": "Algunos tipos de deuda son: préstamos bancarios, tarjetas de crédito, créditos personales, deudas con familiares o amigos y créditos comerciales. Se consideran deudas buenas las que generan un beneficio futuro, y deudas malas las que solo sirven para consumir."
+        }
+      ]
+    },
+    {
+      "id": "conceptos_basicos_intereses",
+      "titulo": "Intereses y su impacto",
+      "contenido": [
+        {
+          "pregunta": "¿Qué es el interés?",
+          "respuesta": "El interés es el costo adicional que se paga por usar dinero prestado. Es un porcentaje del monto de la deuda que se suma al total a pagar."
+        },
+        {
+          "pregunta": "¿Cómo influyen los intereses en la deuda?",
+          "respuesta": "Los intereses aumentan el monto total a devolver. Cuanto mayor es el interés y el tiempo, más dinero se termina pagando."
+        }
+      ]
+    },
+    {
+      "id": "calculo_intereses",
+      "titulo": "Cálculo de intereses: ejemplos",
+      "contenido": [
+        {
+          "pregunta": "¿Cómo calcular intereses simples?",
+          "respuesta": "Multiplica el monto del préstamo por la tasa de interés anual y por los años del préstamo. Ejemplo: 1000 dólares al 12% anual por 2 años = 1000 x 0.12 x 2 = 240 dólares de intereses."
+        },
+        {
+          "pregunta": "¿Cómo funciona el interés compuesto?",
+          "respuesta": "El interés compuesto se aplica sobre el monto inicial y también sobre los intereses acumulados. Por ejemplo, si no pagas los intereses de una tarjeta, estos se suman a la deuda y generan nuevos intereses."
+        }
+      ]
+    },
+    {
+      "id": "tarjetas_credito",
+      "titulo": "Tarjetas de crédito",
+      "contenido": [
+        {
+          "pregunta": "¿Qué es una tarjeta de crédito?",
+          "respuesta": "Es un medio de pago que permite comprar sin tener el dinero en ese momento, generando una deuda que se debe pagar después. Si no se paga a tiempo, se cobran intereses altos."
+        },
+        {
+          "pregunta": "¿Cuáles son los riesgos de usar tarjetas de crédito?",
+          "respuesta": "El principal riesgo es gastar más de lo que puedes pagar. Los intereses pueden ser muy altos y, si no se paga el saldo completo cada mes, la deuda crece rápidamente."
+        },
+        {
+          "pregunta": "¿Cómo usar responsablemente una tarjeta de crédito?",
+          "respuesta": "Usa la tarjeta solo para gastos necesarios, paga siempre el total del saldo antes de la fecha límite, y lleva un registro de tus compras para no exceder tu capacidad de pago."
+        }
+      ]
+    },
+    {
+      "id": "negociar_deudas",
+      "titulo": "Negociar y salir de deudas",
+      "contenido": [
+        {
+          "pregunta": "¿Cómo negociar una deuda con el banco o prestamista?",
+          "respuesta": "Habla directamente con la entidad, explica tu situación y pide opciones como refinanciar la deuda, reducir la tasa de interés, extender el plazo o hacer un plan de pagos. Es mejor negociar antes de atrasarse en los pagos."
+        },
+        {
+          "pregunta": "¿Existen organizaciones que ayudan a negociar deudas?",
+          "respuesta": "Sí, en muchos países existen asociaciones de defensa del consumidor o servicios de asesoría financiera gratuitos que pueden ayudarte a negociar y organizar tus pagos."
+        }
+      ]
+    },
+    {
+      "id": "consolidacion_deuda",
+      "titulo": "Consolidación de deudas",
+      "contenido": [
+        {
+          "pregunta": "¿Qué es la consolidación de deudas?",
+          "respuesta": "La consolidación de deudas consiste en unir varias deudas en un solo préstamo con una sola cuota mensual y, generalmente, una tasa de interés más baja. Así, es más fácil organizarse y ahorrar en intereses."
+        },
+        {
+          "pregunta": "¿Cuándo conviene consolidar deudas?",
+          "respuesta": "Conviene consolidar deudas si tienes varias deudas con diferentes intereses y fechas de pago, y quieres simplificar tus finanzas. Antes de consolidar, compara bien las condiciones y asegúrate de que el nuevo préstamo realmente mejora tu situación."
+        }
+      ]
+    },
+    {
+      "id": "alerta_estafas",
+      "titulo": "Señales de alerta de estafa",
+      "contenido": [
+        {
+          "pregunta": "¿Cómo detectar una estafa relacionada con deudas?",
+          "respuesta": "Desconfía de ofertas que prometen eliminar tus deudas 'sin pagar', que te piden dinero por adelantado para ayudarte o no explican claramente los costos. Verifica siempre que la entidad sea legal y nunca entregues información personal o bancaria a desconocidos."
+        },
+        {
+          "pregunta": "¿Qué hacer si creo que he sido víctima de una estafa?",
+          "respuesta": "Contacta de inmediato a tu banco, denuncia el caso ante las autoridades locales y busca apoyo en asociaciones de defensa del consumidor."
+        }
+      ]
+    },
+    {
+      "id": "salir_rapido_deudas",
+      "titulo": "Recomendaciones para salir de deudas rápidamente",
+      "contenido": [
+        {
+          "pregunta": "¿Qué puedo hacer para salir más rápido de las deudas?",
+          "respuesta": "Prioriza pagar las deudas con mayor interés, destina ingresos extra a pagar deudas, reduce gastos innecesarios, busca fuentes alternativas de ingresos y evita adquirir nuevas deudas hasta haber salido de las actuales."
+        },
+        {
+          "pregunta": "¿Qué es el método 'bola de nieve'?",
+          "respuesta": "Es una estrategia para pagar deudas empezando por la más pequeña, mientras sigues pagando el mínimo en las otras. Cuando terminas la primera, usas ese dinero para pagar la siguiente, y así sucesivamente. Esto te motiva y ayuda a avanzar más rápido."
+        }
+      ]
+    },
+    {
+      "id": "errores_comunes_deuda",
+      "titulo": "Errores comunes y cómo evitarlos",
+      "contenido": [
+        {
+          "pregunta": "¿Cuáles son los errores más frecuentes al endeudarse?",
+          "respuesta": "Algunos errores comunes son: pedir préstamos sin comparar condiciones, endeudarse sin calcular la capacidad de pago, pagar solo el mínimo en tarjetas, no leer bien los contratos, y usar un crédito para pagar otro sin un plan."
+        }
+      ]
+    },
+    {
+      "id": "ejemplo_practico",
+      "titulo": "Ejemplo práctico de cálculo de intereses y pago de deudas",
+      "contenido": [
+        {
+          "pregunta": "¿Cómo afecta el interés a una deuda real?",
+          "respuesta": "Ejemplo: si pides prestados 500 dólares con un interés del 20% anual y no pagas nada en un año, deberás 500 x 0.20 = 100 dólares de intereses. Total a pagar: 600 dólares."
+        },
+        {
+          "pregunta": "¿Por qué es importante pagar más del mínimo?",
+          "respuesta": "Si pagas solo el mínimo en una tarjeta de crédito, la deuda puede durar muchos años y terminarás pagando mucho más en intereses."
+        }
+      ]
+    }
+  ]
 }

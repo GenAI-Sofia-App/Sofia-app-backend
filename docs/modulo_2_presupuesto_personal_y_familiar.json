@@ -1,17 +1,94 @@
 {
-    "modulo": "2. Presupuesto personal y familiar",
-    "contenido": {
-        "¿Qué es un presupuesto?": "El presupuesto es una herramienta básica para el control del dinero. Consiste en un plan de los ingresos y gastos previstos en un periodo de tiempo (habitualmente, un mes). Su objetivo es equilibrar lo que entra y lo que sale, evitando situaciones de gasto excesivo y permitiendo destinar parte de los ingresos al ahorro.\nEl presupuesto se adapta a las circunstancias de cada persona o familia, y debe ser realista y flexible. Ayuda a identificar y reducir gastos innecesarios, prever imprevistos y anticipar situaciones de dificultad económica. Además, contribuye a establecer prioridades y a tomar decisiones informadas sobre el uso del dinero.",
-        "Clasificación de los gastos": "Los gastos pueden clasificarse según su naturaleza y periodicidad:\n- Gastos fijos: Son los que se repiten periódicamente y no suelen variar mucho (alquiler, hipoteca, seguros, suministros básicos).\n- Gastos variables: Cambian de mes a mes según el consumo o necesidades (alimentación, ropa, ocio, salud).\n- Gastos imprevistos: Surgen de manera inesperada y pueden afectar al presupuesto (reparaciones, multas, enfermedades).\nEs recomendable separar claramente estos conceptos y tratar de anticipar los gastos imprevistos, destinando una pequeña cantidad mensual para cubrirlos.",
-        "Elaboración de un presupuesto": "Para elaborar un presupuesto hay que:\n1. Anotar todos los ingresos netos mensuales (salarios, ayudas, pensiones, etc.).\n2. Registrar todos los gastos, clasificándolos en fijos, variables e imprevistos.\n3. Comparar la suma de gastos con la de ingresos para comprobar si existe equilibrio, superávit (sobra dinero) o déficit (falta dinero).\n4. Ajustar los gastos si es necesario, eliminando o reduciendo aquellos que no sean imprescindibles.\n5. Revisar periódicamente el presupuesto para adaptarlo a cambios en la situación económica.",
-        "Consejos prácticos": "• Incluir el ahorro como un gasto fijo más, aunque sea una pequeña cantidad.\n• Llevar un control de gastos diario o semanal para evitar desvíos.\n• Utilizar herramientas como aplicaciones móviles, hojas de cálculo o libretas.\n• Revisar las facturas y recibos para detectar errores o servicios no contratados.\n• Revisar y renegociar contratos de suministros y seguros periódicamente.",
-        "Regla 50/30/20": "Una referencia sencilla para distribuir los ingresos es la regla 50/30/20:\n- 50% para gastos fijos y necesidades básicas.\n- 30% para gastos personales y estilo de vida (ocio, viajes, suscripciones, etc.).\n- 20% para el ahorro y reducción de deudas.\nEsta proporción puede adaptarse a cada caso, pero ayuda a visualizar el equilibrio financiero y la importancia del ahorro.",
-        "Errores frecuentes y cómo evitarlos": "• No anotar todos los gastos, lo que lleva a perder el control.\n• Subestimar los gastos variables o imprevistos.\n• No adaptar el presupuesto cuando cambian los ingresos o circunstancias.\n• No reservar una parte para el ahorro o emergencias.\n• Olvidar pequeños gastos, que al final suman una cantidad importante.",
-        "Resumen": "El presupuesto es la base de la gestión financiera personal y familiar. Permite tomar el control del dinero, identificar fugas de gasto, planificar el ahorro y anticipar imprevistos. Su elaboración y seguimiento son fundamentales para lograr estabilidad económica y alcanzar metas financieras."
+  "temas": [
+    {
+      "id": "conceptos_basicos",
+      "titulo": "Conceptos básicos de presupuesto",
+      "contenido": [
+        {
+          "pregunta": "¿Qué es un presupuesto personal?",
+          "respuesta": "Un presupuesto personal es una herramienta que permite planificar y controlar los ingresos y gastos de una persona o familia durante un periodo de tiempo determinado, generalmente mensual."
+        },
+        {
+          "pregunta": "¿Por qué es importante tener un presupuesto familiar?",
+          "respuesta": "Un presupuesto ayuda a organizar los recursos del hogar, evitar deudas innecesarias, priorizar gastos esenciales y alcanzar metas como el ahorro o la educación de los hijos."
+        }
+      ]
     },
-    "enlaces": [
-        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/como-controlar-tus-gastos-haciendo-un-presupuesto-mensual/",
-        "https://finanzasparatodos.es/finanzas-personales/presupuesto/",
-        "https://www.ocu.org/dinero/finanzas/fichas/presupuesto-familiar"
-    ]
+    {
+      "id": "componentes_presupuesto",
+      "titulo": "Componentes de un presupuesto",
+      "contenido": [
+        {
+          "pregunta": "¿Cuáles son los principales componentes de un presupuesto?",
+          "respuesta": "Los principales componentes de un presupuesto son: ingresos (sueldos, ayudas, becas, pensiones), gastos fijos (vivienda, servicios, alimentación), gastos variables (ropa, ocio, emergencias), ahorro e inversiones."
+        },
+        {
+          "pregunta": "¿Cómo se clasifican los gastos?",
+          "respuesta": "Los gastos se dividen en fijos (constantes cada mes, como alquiler o servicios) y variables (cambian según las necesidades, como ocio o compras imprevistas)."
+        }
+      ]
+    },
+    {
+      "id": "elaboracion_presupuesto",
+      "titulo": "Cómo elaborar un presupuesto",
+      "contenido": [
+        {
+          "pregunta": "¿Cuáles son los pasos para hacer un presupuesto personal o familiar?",
+          "respuesta": "1. Registrar todos los ingresos mensuales. 2. Anotar todos los gastos mensuales. 3. Separar los gastos en fijos y variables. 4. Restar los gastos a los ingresos. 5. Ajustar los gastos para asegurar que no superen los ingresos y buscar un margen para el ahorro."
+        },
+        {
+          "pregunta": "¿Con qué frecuencia se debe revisar el presupuesto?",
+          "respuesta": "Es recomendable revisar el presupuesto al menos una vez al mes y ajustarlo en caso de cambios importantes en los ingresos o gastos."
+        }
+      ]
+    },
+    {
+      "id": "ahorro_presupuesto",
+      "titulo": "Ahorro y presupuesto",
+      "contenido": [
+        {
+          "pregunta": "¿Cómo incluir el ahorro en el presupuesto?",
+          "respuesta": "El ahorro debe ser una prioridad y considerarse un gasto fijo. Idealmente, destina al menos el 10% de los ingresos al ahorro antes de otros gastos menos esenciales."
+        },
+        {
+          "pregunta": "¿Qué hacer si no se puede ahorrar?",
+          "respuesta": "Si no puedes ahorrar, revisa tus gastos variables para identificar en qué puedes reducir. Incluso pequeños ahorros mensuales suman a largo plazo."
+        }
+      ]
+    },
+    {
+      "id": "errores_comunes",
+      "titulo": "Errores comunes en el presupuesto",
+      "contenido": [
+        {
+          "pregunta": "¿Cuáles son los errores más frecuentes al hacer un presupuesto?",
+          "respuesta": "Los errores más comunes son: olvidar anotar gastos pequeños, sobrestimar los ingresos, no incluir gastos imprevistos, no revisar el presupuesto regularmente y no separar un fondo de emergencia."
+        }
+      ]
+    },
+    {
+      "id": "herramientas_presupuesto",
+      "titulo": "Herramientas para gestionar el presupuesto",
+      "contenido": [
+        {
+          "pregunta": "¿Qué herramientas pueden ayudar a gestionar el presupuesto?",
+          "respuesta": "Puedes usar una libreta, hojas de cálculo digitales, aplicaciones móviles gratuitas o plantillas en internet para registrar ingresos y gastos."
+        }
+      ]
+    },
+    {
+      "id": "casos_especiales",
+      "titulo": "Casos especiales: migrantes",
+      "contenido": [
+        {
+          "pregunta": "¿Por qué es importante un presupuesto si eres migrante?",
+          "respuesta": "Al llegar a un nuevo país, los precios, los servicios y los ingresos pueden ser diferentes a los de tu país de origen. Un presupuesto ayuda a adaptarte rápidamente, evitar deudas y asegurarte de cubrir todas tus necesidades básicas."
+        },
+        {
+          "pregunta": "¿Qué consejos prácticos existen para migrantes al hacer un presupuesto?",
+          "respuesta": "Investiga los precios locales antes de comprometerte con gastos grandes, prioriza los gastos básicos (vivienda, alimentación, transporte), busca alternativas económicas y destina una parte para emergencias. Considera también gastos como envíos de dinero a familiares y posibles trámites migratorios."
+        }
+      ]
+    }
+  ]
 }

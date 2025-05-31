@@ -1,18 +1,186 @@
 {
-    "modulo": "3. Gestión del dinero y bancos",
-    "contenido": {
-        "Cuentas bancarias": "Las cuentas bancarias son productos financieros básicos donde se depositan y gestionan los fondos personales. Existen varios tipos:\n- Cuenta corriente: Para la operativa diaria (ingresos, pagos, domiciliaciones, tarjetas, transferencias). No suele ofrecer remuneración por el saldo.\n- Cuenta de ahorro: Pensada para fomentar el ahorro, generalmente ofrece un pequeño interés. Limita la operativa frente a la cuenta corriente.\n- Cuenta nómina: Especial para domiciliar salarios. Suele incluir ventajas como reducción de comisiones, anticipos o regalos promocionales.\n- Depósito a plazo: El dinero se mantiene inmovilizado durante un tiempo determinado a cambio de una rentabilidad pactada.\nEs fundamental comparar las condiciones (comisiones, operativa, requisitos) y revisar los extractos periódicamente para controlar movimientos y detectar errores o cargos no reconocidos.",
-        "Tarjetas y medios de pago": "Las tarjetas permiten operar con el dinero depositado en el banco:\n- Tarjeta de débito: Permite disponer del dinero de la cuenta de forma inmediata. Es útil para compras, retiradas en cajeros y pagos online.\n- Tarjeta de crédito: Permite aplazar pagos y financiar compras. Si no se paga el total a final de mes, se aplican intereses elevados.\n- Tarjeta prepago: Se recarga con una cantidad concreta y solo permite gastar el saldo disponible, útil para compras por internet.\nOtros medios de pago habituales son Bizum, transferencias bancarias, domiciliaciones y aplicaciones móviles.\nSe recomienda proteger los datos de las tarjetas y vigilar los movimientos para evitar fraudes. En caso de pérdida o robo, bloquear la tarjeta de inmediato.",
-        "Comisiones bancarias": "Las entidades pueden cobrar diversas comisiones:\n- Mantenimiento y administración de cuentas.\n- Emisión y renovación de tarjetas.\n- Transferencias, ingreso de cheques, retirada en cajeros de otras redes.\nEs fundamental informarse de las condiciones de cada producto y negociar la reducción o supresión de comisiones (por ejemplo, domiciliando ingresos o recibos, o cumpliendo ciertos requisitos).\nExisten cuentas básicas reguladas por ley con condiciones especiales para personas con bajos ingresos.",
-        "Banca digital y seguridad": "La banca online permite operar de manera sencilla a través de ordenadores y móviles: consultar saldos, hacer transferencias, gestionar recibos, etc.\nHay que extremar las precauciones: utilizar contraseñas seguras, no acceder desde redes públicas, revisar la web de la entidad antes de introducir datos y desconfiar de correos o mensajes sospechosos (phishing).\nLas entidades están obligadas a proteger la información del cliente y ofrecer canales de atención y reclamación ante problemas.",
-        "Derechos del usuario financiero": "Como cliente bancario se tienen derechos, entre ellos:\n- A recibir información clara, veraz y suficiente sobre productos y servicios.\n- A consultar y reclamar ante el Servicio de Atención al Cliente (SAC) del banco o el Banco de España.\n- A la protección de datos personales.\n- Al acceso a una cuenta de pago básica, independientemente de la situación económica.\nConviene conservar la documentación y justificantes de operaciones para poder reclamar en caso de incidencias.",
-        "Resumen": "Una buena gestión bancaria implica elegir los productos adecuados, conocer los derechos y obligaciones, controlar movimientos y comisiones, y utilizar de forma segura los canales digitales. La información y el uso responsable de los servicios financieros son clave para evitar problemas y sacar el máximo partido a los recursos personales."
+  "temas": [
+    {
+      "id": "conceptos_basicos_banco",
+      "titulo": "Conceptos básicos sobre bancos y dinero",
+      "contenido": [
+        {
+          "pregunta": "¿Qué es un banco?",
+          "respuesta": "Un banco es una entidad financiera que ofrece servicios para guardar dinero de forma segura, realizar pagos, transferencias, obtener créditos y acceder a otros productos financieros."
+        },
+        {
+          "pregunta": "¿Por qué es importante usar un banco?",
+          "respuesta": "Tener una cuenta bancaria permite recibir salarios, ahorrar de forma segura, pagar servicios, enviar dinero y acceder a productos financieros como créditos o tarjetas."
+        }
+      ]
     },
-    "enlaces": [
-        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/cuentasbancarias/",
-        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/tarjetas/",
-        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/banca-digital/",
-        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/comisiones/",
-        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/derechos/"
-    ]
+    {
+      "id": "tipos_cuentas_bancarias",
+      "titulo": "Tipos de cuentas bancarias",
+      "contenido": [
+        {
+          "pregunta": "¿Cuáles son los tipos más comunes de cuentas bancarias?",
+          "respuesta": "Las cuentas más comunes son: cuenta de ahorros (para guardar dinero y ganar intereses), cuenta corriente (para operaciones diarias y pagos), y cuentas remuneradas (que combinan pagos e intereses)."
+        },
+        {
+          "pregunta": "¿Qué documentos necesito para abrir una cuenta bancaria?",
+          "respuesta": "Generalmente se requiere un documento de identidad válido, comprobante de domicilio y, en algunos países, un documento que justifique el origen de los fondos."
+        }
+      ]
+    },
+    {
+      "id": "tarjetas_bancarias",
+      "titulo": "Tarjetas bancarias: débito y crédito",
+      "contenido": [
+        {
+          "pregunta": "¿Cuál es la diferencia entre una tarjeta de débito y una tarjeta de crédito?",
+          "respuesta": "La tarjeta de débito permite usar solo el dinero que tienes en tu cuenta, mientras que la tarjeta de crédito permite hacer compras aunque no tengas saldo, generando una deuda que deberás pagar después. El uso de crédito puede implicar el pago de intereses si no se paga a tiempo."
+        },
+        {
+          "pregunta": "¿Cuáles son los costos y comisiones asociados a las tarjetas?",
+          "respuesta": "Algunas tarjetas cobran comisiones por emisión, mantenimiento, retiros en cajeros de otros bancos o compras en el extranjero. Pregunta siempre antes de solicitar una tarjeta y revisa el contrato."
+        }
+      ]
+    },
+    {
+      "id": "gestionar_dinero",
+      "titulo": "Cómo gestionar el dinero en el banco",
+      "contenido": [
+        {
+          "pregunta": "¿Cómo puedo ingresar dinero en mi cuenta?",
+          "respuesta": "Puedes depositar dinero en efectivo en la ventanilla, a través de un cajero automático, recibir transferencias o el pago de tu salario directamente en tu cuenta."
+        },
+        {
+          "pregunta": "¿Cómo puedo retirar dinero?",
+          "respuesta": "Puedes retirar dinero en cajeros automáticos con tu tarjeta, o en ventanillas del banco presentando tu documento de identidad."
+        }
+      ]
+    },
+    {
+      "id": "servicios_bancarios",
+      "titulo": "Servicios bancarios más comunes",
+      "contenido": [
+        {
+          "pregunta": "¿Qué servicios ofrecen los bancos?",
+          "respuesta": "Entre los servicios más habituales están: transferencias nacionales e internacionales, pagos de servicios, domiciliación de recibos, tarjetas de débito y crédito, y productos de ahorro o inversión."
+        },
+        {
+          "pregunta": "¿Qué es la banca online?",
+          "respuesta": "La banca online permite realizar operaciones y consultas desde una computadora o teléfono móvil, sin necesidad de acudir a una oficina física. Es segura si se siguen las recomendaciones del banco."
+        }
+      ]
+    },
+    {
+      "id": "consejos_seguridad_bancaria",
+      "titulo": "Seguridad en el uso de bancos y dinero",
+      "contenido": [
+        {
+          "pregunta": "¿Qué consejos de seguridad debo seguir con mi banco?",
+          "respuesta": "No compartas tu clave ni información bancaria, cambia tus contraseñas periódicamente, revisa frecuentemente tus movimientos y, ante cualquier transacción sospechosa, contacta de inmediato con tu banco."
+        },
+        {
+          "pregunta": "¿Cómo evitar fraudes bancarios?",
+          "respuesta": "Desconfía de correos o mensajes sospechosos que piden tus datos personales o bancarios. Accede siempre a la web del banco escribiendo la dirección directamente y nunca desde enlaces dudosos."
+        }
+      ]
+    },
+    {
+      "id": "consejos_elegir_banco",
+      "titulo": "Consejos para elegir un banco",
+      "contenido": [
+        {
+          "pregunta": "¿En qué debo fijarme al elegir un banco?",
+          "respuesta": "Compara comisiones, facilidad de uso de la app o web, cantidad de cajeros automáticos, atención al cliente, requisitos de apertura y si ofrecen productos que se adapten a tus necesidades."
+        },
+        {
+          "pregunta": "¿Puedo cambiarme de banco si no estoy satisfecho?",
+          "respuesta": "Sí, puedes cerrar tu cuenta en un banco y abrir una en otro cuando quieras. Antes de cambiar, asegúrate de no dejar pagos o domiciliaciones pendientes y retira todo tu saldo."
+        }
+      ]
+    },
+    {
+      "id": "errores_comunes_banco",
+      "titulo": "Errores comunes al usar bancos",
+      "contenido": [
+        {
+          "pregunta": "¿Cuáles son los errores más frecuentes al manejar cuentas bancarias?",
+          "respuesta": "Algunos errores son: olvidar las fechas de pago, no revisar los extractos, compartir datos personales, gastar más de lo disponible en la cuenta, y no preguntar por comisiones y costos antes de contratar un servicio."
+        }
+      ]
+    },
+    {
+      "id": "envio_dinero",
+      "titulo": "Envío de dinero y remesas",
+      "contenido": [
+        {
+          "pregunta": "¿Cómo puedo enviar dinero a otro país?",
+          "respuesta": "Puedes usar servicios bancarios, casas de cambio o plataformas digitales. Compara siempre el tipo de cambio y las comisiones antes de enviar dinero."
+        },
+        {
+          "pregunta": "¿Qué debo tener en cuenta al recibir remesas?",
+          "respuesta": "Asegúrate de dar correctamente los datos de tu cuenta o del destinatario, revisa que el dinero llegue completo y verifica los tiempos de entrega y los costos del servicio."
+        }
+      ]
+    },
+    {
+      "id": "derechos_usuario_financiero",
+      "titulo": "Derechos del usuario financiero",
+      "contenido": [
+        {
+          "pregunta": "¿Cuáles son los derechos básicos de los usuarios de bancos?",
+          "respuesta": "Tienes derecho a recibir información clara y transparente sobre los productos y servicios, a no ser discriminado por tu origen, a reclamar ante problemas o abusos, y a la protección de tus datos personales."
+        },
+        {
+          "pregunta": "¿Cómo puedo hacer un reclamo o queja contra un banco?",
+          "respuesta": "Puedes presentar una queja en la sucursal o en la página del banco, y si no recibes respuesta, acudir a organismos de defensa del consumidor o supervisores financieros del país."
+        },
+        {
+          "pregunta": "¿Debo firmar cualquier contrato sin leerlo?",
+          "respuesta": "Nunca firmes un contrato sin leerlo ni entenderlo. Tienes derecho a pedir que te expliquen cada condición, tasa o comisión antes de aceptar."
+        }
+      ]
+    },
+    {
+      "id": "ejemplos_reclamos_bancarios",
+      "titulo": "Ejemplos de reclamos bancarios",
+      "contenido": [
+        {
+          "pregunta": "¿Qué tipo de reclamos puedo hacer al banco?",
+          "respuesta": "Puedes reclamar por cobro de comisiones no autorizadas, errores en el saldo de la cuenta, cargos desconocidos, mal servicio, o información confusa en contratos y publicidad."
+        },
+        {
+          "pregunta": "¿Cómo redactar un reclamo sencillo?",
+          "respuesta": "Describe claramente el problema, incluye fechas y datos de la cuenta, explica lo que solicitas (por ejemplo, devolución de una comisión) y guarda una copia del reclamo presentado."
+        }
+      ]
+    },
+    {
+      "id": "simulacion_costos_bancarios",
+      "titulo": "Simulación de costos bancarios",
+      "contenido": [
+        {
+          "pregunta": "¿Cómo puedo saber cuánto me costará mi cuenta bancaria al año?",
+          "respuesta": "Suma todas las comisiones anuales: mantenimiento, tarjetas, transferencias y otros servicios. Por ejemplo, si la cuenta cobra 3 dólares mensuales de mantenimiento y 2 dólares por cada transferencia (5 transferencias al mes), el costo sería: (3x12) + (2x5x12) = 36 + 120 = 156 dólares al año."
+        },
+        {
+          "pregunta": "¿Dónde encuentro esta información?",
+          "respuesta": "La información sobre comisiones debe estar disponible en la web del banco, en el contrato y puedes pedir un resumen de costos antes de abrir la cuenta."
+        }
+      ]
+    },
+    {
+      "id": "productos_financieros_avanzados",
+      "titulo": "Productos financieros avanzados",
+      "contenido": [
+        {
+          "pregunta": "¿Qué productos financieros avanzados ofrecen los bancos?",
+          "respuesta": "Los bancos pueden ofrecer productos como fondos de inversión, planes de pensiones, depósitos a plazo fijo, seguros y tarjetas de crédito premium."
+        },
+        {
+          "pregunta": "¿Qué debo saber antes de invertir a través del banco?",
+          "respuesta": "Infórmate sobre el nivel de riesgo, los costos, las posibles ganancias y lee siempre los contratos. Si no entiendes el producto, pide asesoría y no inviertas en algo que no comprendes."
+        }
+      ]
+    }
+  ]
 }

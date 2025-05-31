@@ -1,15 +1,80 @@
 {
-    "modulo": "6. Objetivos financieros y planificación",
-    "contenido": {
-        "Establecer objetivos financieros": "El primer paso para una buena gestión del dinero es definir metas claras y realistas. Los objetivos pueden ser a corto plazo (comprar un electrodoméstico), a medio plazo (cambiar de coche, estudios) o a largo plazo (jubilación, vivienda). Las metas deben ser específicas, medibles, alcanzables, relevantes y con un plazo determinado (SMART).",
-        "Planificación financiera": "Planificar es diseñar el camino para alcanzar los objetivos. Implica:\n- Analizar la situación financiera actual (ingresos, gastos, deudas, patrimonio).\n- Elaborar un presupuesto ajustado a las metas.\n- Destinar parte de los ingresos al ahorro o inversión para cada objetivo.\n- Anticipar imprevistos y disponer de un fondo de emergencia.\nLa planificación es un proceso dinámico: debe revisarse y adaptarse periódicamente.",
-        "Herramientas y estrategias": "- Automatizar el ahorro o la inversión con transferencias periódicas.\n- Usar simuladores y hojas de cálculo para prever resultados.\n- Priorizar objetivos y dividirlos en etapas intermedias si son ambiciosos.\n- Fijar recordatorios y fechas de revisión.\n- Revisar regularmente los progresos y ajustar la estrategia si hay cambios en los ingresos, gastos o prioridades.",
-        "Errores frecuentes": "• No definir metas concretas ni plazos.\n• No adaptar la planificación a cambios personales o económicos.\n• No separar el ahorro para distintos objetivos, lo que puede llevar a gastar el dinero destinado a un fin en otra cosa.\n• Olvidar la importancia de un fondo de emergencia.\n• No celebrar los logros parciales, lo que desmotiva la constancia.",
-        "Resumen": "Tener objetivos y planificar las finanzas personales permite tomar decisiones informadas, anticipar necesidades, evitar sorpresas desagradables y aumentar la motivación para ahorrar e invertir. La clave está en la constancia, la revisión periódica y la flexibilidad para adaptarse a las circunstancias."
+  "temas": [
+    {
+      "id": "conceptos_basicos_objetivos",
+      "titulo": "Conceptos básicos sobre objetivos financieros",
+      "contenido": [
+        {
+          "pregunta": "¿Qué son los objetivos financieros?",
+          "respuesta": "Los objetivos financieros son metas económicas que una persona o familia se propone alcanzar en un periodo de tiempo. Pueden ser a corto, mediano o largo plazo."
+        },
+        {
+          "pregunta": "¿Por qué es importante definir objetivos financieros?",
+          "respuesta": "Tener objetivos claros ayuda a enfocar el esfuerzo, organizar el presupuesto, motivarse a ahorrar y tomar mejores decisiones con el dinero."
+        }
+      ]
     },
-    "enlaces": [
-        "https://finanzasparatodos.es/finanzas-personales/planificacion-financiera/",
-        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/como-hacer-un-presupuesto/",
-        "https://www.cnmv.es/portal/FinEducacion/Planificacion-Financiera.aspx"
-    ]
+    {
+      "id": "tipos_objetivos",
+      "titulo": "Tipos de objetivos financieros",
+      "contenido": [
+        {
+          "pregunta": "¿Cuáles son los tipos de objetivos financieros?",
+          "respuesta": "Los objetivos pueden clasificarse en: corto plazo (menos de 1 año, como comprar un electrodoméstico), mediano plazo (1 a 5 años, como pagar una deuda o cambiar de casa) y largo plazo (más de 5 años, como la educación universitaria de los hijos o la jubilación)."
+        },
+        {
+          "pregunta": "¿Debo tener varios objetivos al mismo tiempo?",
+          "respuesta": "Sí, pero es importante priorizarlos y ser realista con los recursos disponibles. Se pueden trabajar varios objetivos a la vez si el presupuesto lo permite."
+        }
+      ]
+    },
+    {
+      "id": "como_definir_objetivos",
+      "titulo": "Cómo definir y planificar objetivos financieros",
+      "contenido": [
+        {
+          "pregunta": "¿Cómo puedo definir un objetivo financiero?",
+          "respuesta": "Un objetivo debe ser específico, medible, alcanzable, relevante y tener un plazo definido (metodología SMART). Por ejemplo: 'Ahorrar 500 dólares en 6 meses para comprar una laptop'."
+        },
+        {
+          "pregunta": "¿Cómo hago un plan para lograr un objetivo financiero?",
+          "respuesta": "1. Define claramente el objetivo y el monto necesario. 2. Fija una fecha límite. 3. Calcula cuánto necesitas ahorrar cada mes. 4. Ajusta el presupuesto para lograrlo. 5. Evalúa el progreso periódicamente."
+        }
+      ]
+    },
+    {
+      "id": "seguimiento_objetivos",
+      "titulo": "Seguimiento y ajustes en la planificación",
+      "contenido": [
+        {
+          "pregunta": "¿Por qué es importante revisar los objetivos financieros?",
+          "respuesta": "Las circunstancias pueden cambiar. Revisar regularmente los objetivos ayuda a adaptarse, ajustar el plan y no perder la motivación."
+        },
+        {
+          "pregunta": "¿Qué hago si no logro cumplir un objetivo en el plazo previsto?",
+          "respuesta": "Analiza qué dificultades surgieron, ajusta el plazo o el monto si es necesario y continúa trabajando hacia tu meta. Lo importante es no abandonar el objetivo."
+        }
+      ]
+    },
+    {
+      "id": "errores_comunes_objetivos",
+      "titulo": "Errores comunes en la planificación financiera",
+      "contenido": [
+        {
+          "pregunta": "¿Cuáles son los errores más comunes al establecer objetivos financieros?",
+          "respuesta": "Algunos errores frecuentes son: no ser realista con los plazos o cantidades, no escribir los objetivos, no revisarlos regularmente, gastar los ahorros en otras cosas y no adaptar el plan cuando hay cambios importantes."
+        }
+      ]
+    },
+    {
+      "id": "ejemplos_objetivos",
+      "titulo": "Ejemplos de objetivos financieros",
+      "contenido": [
+        {
+          "pregunta": "¿Cuáles son ejemplos de objetivos financieros de corto, mediano y largo plazo?",
+          "respuesta": "Corto plazo: ahorrar para unas vacaciones, comprar un electrodoméstico. Mediano plazo: pagar una deuda, comprar una motocicleta, realizar un curso. Largo plazo: comprar una casa, ahorrar para la jubilación, financiar la educación de los hijos."
+        }
+      ]
+    }
+  ]
 }

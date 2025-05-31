@@ -1,17 +1,102 @@
 {
-    "modulo": "5. Ahorro e inversión básica",
-    "contenido": {
-        "Importancia del ahorro": "Ahorrar es separar una parte de los ingresos para necesidades futuras o imprevistos. El ahorro proporciona seguridad, permite afrontar gastos imprevistos, planificar objetivos (viajes, estudios, vivienda) y da tranquilidad económica. El ahorro debe considerarse un gasto fijo más del presupuesto mensual, aunque sea en pequeñas cantidades.",
-        "Productos de ahorro": "- Cuenta de ahorro: Ofrece seguridad y liquidez, con una pequeña rentabilidad.\n- Depósitos a plazo: Inmovilizan el dinero durante un tiempo a cambio de un interés superior al de una cuenta corriente.\n- Letras del Tesoro, bonos y obligaciones: Son productos de deuda pública con diferentes plazos y rentabilidades.\nEs fundamental informarse de las condiciones (plazo, remuneración, penalizaciones por retirada anticipada) antes de contratar cualquier producto de ahorro.",
-        "¿Por qué invertir?": "La inversión consiste en destinar el dinero ahorrado a productos financieros con la esperanza de obtener una rentabilidad mayor que la del ahorro tradicional. Invertir implica asumir riesgos, pero puede ser necesario para alcanzar ciertos objetivos a largo plazo (jubilación, vivienda, estudios, etc.).",
-        "Principios básicos de inversión": "• Rentabilidad, riesgo y liquidez: Son los tres conceptos clave. Mayor rentabilidad suele conllevar mayor riesgo.\n• Diversificación: Repartir el dinero entre distintos productos y sectores reduce el riesgo total.\n• Horizonte temporal: El plazo durante el cual no se necesitará el dinero condiciona la elección del producto.\n• Perfil de inversor: Cada persona debe valorar su tolerancia al riesgo antes de invertir.\n• Interés compuesto: Reinvertir los intereses o beneficios genera un efecto acumulativo que multiplica los resultados a largo plazo.",
-        "Productos de inversión básicos": "- Fondos de inversión: Permiten invertir en una cesta de activos gestionada por profesionales, con diferentes niveles de riesgo y rentabilidad.\n- Acciones: Son participaciones en empresas cotizadas en Bolsa. Su valor fluctúa y pueden generar dividendos.\n- Planes de pensiones: Aportaciones periódicas o puntuales para complementar la jubilación, con ventajas fiscales pero menor liquidez.\n- ETFs (fondos cotizados): Mezclan características de fondos y acciones, se negocian en Bolsa y replican índices o mercados.\nAntes de invertir es imprescindible informarse de las comisiones, la fiscalidad y los riesgos asociados a cada producto.",
-        "Errores frecuentes y consejos": "• Invertir sin informarse o sin valorar los riesgos.\n• Dejarse llevar por modas o recomendaciones sin analizar.\n• No diversificar.\n• Olvidar la liquidez: evitar invertir dinero que pueda necesitarse a corto plazo.\n• No revisar periódicamente la cartera de inversiones.\nSe recomienda consultar fuentes fiables y, en caso de dudas, acudir a asesores independientes o entidades reguladas.",
-        "Resumen": "Ahorrar y, si es posible, invertir son pasos fundamentales para la salud financiera. El conocimiento, la prudencia y la planificación son claves para alcanzar objetivos y protegerse de los riesgos."
+  "temas": [
+    {
+      "id": "conceptos_basicos_ahorro",
+      "titulo": "Conceptos básicos de ahorro",
+      "contenido": [
+        {
+          "pregunta": "¿Qué es el ahorro?",
+          "respuesta": "El ahorro es la parte de los ingresos que no se gasta, sino que se guarda para necesidades futuras, emergencias o para alcanzar metas personales o familiares."
+        },
+        {
+          "pregunta": "¿Por qué es importante ahorrar?",
+          "respuesta": "Ahorrar permite afrontar imprevistos, planificar el futuro, evitar deudas y tener tranquilidad financiera en situaciones difíciles."
+        }
+      ]
     },
-    "enlaces": [
-        "https://www.cnmv.es/portal/FinEducacion/Ahorro-Inversion.aspx",
-        "https://finanzasparatodos.es/finanzas-personales/ahorro-e-inversion/",
-        "https://clientebancario.bde.es/pcb/es/menu-horizontal/actualidadeducac/ahorrar-e-invertir/"
-    ]
+    {
+      "id": "como_ahorrar",
+      "titulo": "¿Cómo empezar a ahorrar?",
+      "contenido": [
+        {
+          "pregunta": "¿Cuánto dinero debo ahorrar cada mes?",
+          "respuesta": "Se recomienda ahorrar al menos el 10% de los ingresos mensuales, pero lo importante es empezar con cualquier cantidad posible e ir aumentando progresivamente."
+        },
+        {
+          "pregunta": "¿Cómo puedo organizar mis ahorros?",
+          "respuesta": "Puedes separar el dinero destinado al ahorro en una cuenta diferente o utilizar sobres/envelopes físicos para evitar gastarlo accidentalmente."
+        },
+        {
+          "pregunta": "¿Qué hacer si tengo ingresos bajos?",
+          "respuesta": "Aunque los ingresos sean bajos, intenta ahorrar una cantidad pequeña de forma regular. Reducir gastos innecesarios y priorizar el ahorro ayuda a crear el hábito."
+        }
+      ]
+    },
+    {
+      "id": "fondo_emergencia",
+      "titulo": "Fondo de emergencia",
+      "contenido": [
+        {
+          "pregunta": "¿Qué es un fondo de emergencia?",
+          "respuesta": "Es una cantidad de dinero reservada para gastos imprevistos como enfermedades, desempleo o reparaciones urgentes. El objetivo es no endeudarse ante una emergencia."
+        },
+        {
+          "pregunta": "¿Cuánto debo tener en mi fondo de emergencia?",
+          "respuesta": "Idealmente, el fondo de emergencia debe cubrir entre 3 y 6 meses de gastos básicos. Si esto no es posible, comienza con una meta más pequeña y aumenta con el tiempo."
+        }
+      ]
+    },
+    {
+      "id": "conceptos_basicos_inversion",
+      "titulo": "Conceptos básicos de inversión",
+      "contenido": [
+        {
+          "pregunta": "¿Qué es una inversión?",
+          "respuesta": "Invertir significa destinar parte de tu dinero para obtener ganancias en el futuro. Las inversiones pueden ser en productos bancarios, bienes, negocios u otros activos."
+        },
+        {
+          "pregunta": "¿En qué se diferencia el ahorro de la inversión?",
+          "respuesta": "El ahorro es guardar dinero de manera segura y con poco o ningún riesgo, mientras que la inversión implica buscar mayores ganancias, asumiendo ciertos riesgos."
+        }
+      ]
+    },
+    {
+      "id": "tipos_inversiones_basicas",
+      "titulo": "Tipos de inversiones básicas",
+      "contenido": [
+        {
+          "pregunta": "¿Cuáles son las formas más sencillas de invertir?",
+          "respuesta": "Las formas más comunes para principiantes son: cuentas de ahorro con intereses, depósitos a plazo fijo, fondos de inversión, o invertir en pequeños negocios propios."
+        },
+        {
+          "pregunta": "¿Es seguro invertir?",
+          "respuesta": "Toda inversión tiene riesgos. Es importante informarse bien, empezar con cantidades pequeñas y nunca invertir dinero que puedas necesitar a corto plazo."
+        }
+      ]
+    },
+    {
+      "id": "consejos_seguridad",
+      "titulo": "Consejos y seguridad al invertir",
+      "contenido": [
+        {
+          "pregunta": "¿Qué precauciones debo tomar antes de invertir?",
+          "respuesta": "Antes de invertir, infórmate sobre el producto, revisa la reputación de la entidad o empresa, consulta a expertos si es posible y nunca tomes decisiones apresuradas."
+        },
+        {
+          "pregunta": "¿Debo pedir consejo antes de invertir?",
+          "respuesta": "Es recomendable consultar fuentes confiables, hablar con asesores financieros certificados y no dejarse llevar por promesas de ganancias rápidas o sin riesgo."
+        }
+      ]
+    },
+    {
+      "id": "errores_comunes_ahorro_inversion",
+      "titulo": "Errores comunes al ahorrar e invertir",
+      "contenido": [
+        {
+          "pregunta": "¿Cuáles son los errores más frecuentes?",
+          "respuesta": "Algunos errores comunes son: gastar todos los ingresos sin ahorrar, invertir sin informarse, dejarse llevar por estafas, o poner todos los ahorros en una sola inversión."
+        }
+      ]
+    }
+  ]
 }

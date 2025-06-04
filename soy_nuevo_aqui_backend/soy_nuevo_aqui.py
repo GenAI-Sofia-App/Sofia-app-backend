@@ -104,6 +104,8 @@ Eres un asistente financiero para migrantes que necesitan abrir una cuenta banca
 - Apertura cuenta y gestión bancaria: {banking_chunks}
 - Declaración de impuestos: {taxes_chunks}
 - Recursos adicionales: {resources_chunks}
+
+Responde en el idioma en el que te pregunte el usuario.
 """
 
     response = client.chat.completions.create(

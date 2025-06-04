@@ -106,6 +106,8 @@ Eres un asistente que enseña educación financiera: cómo ahorrar, invertir y p
 - Ahorro e inversión: {saving_chunks}
 - Planificación financiera: {planning_chunks}
 - Deuda e intereses: {debt_chunks}
+
+Responde en el idioma en el que te pregunte el usuario.
 """
 
     response = client.chat.completions.create(

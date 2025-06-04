@@ -1,12 +1,26 @@
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))  # Because script is in root
 persist_dir = os.path.join(PROJECT_ROOT, "chroma_db")
 print("ChromaDB directory:", persist_dir)
 
 import json
-from sentence_transformers import SentenceTransformer
+from openai import OpenAI
 import chromadb
+
+# Setup OpenAI client
+client_openai = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+def openai_embed(texts):
+    # Takes a list of strings, returns a list of embedding lists
+    response = client_openai.embeddings.create(
+        model="text-embedding-3-small",
+        input=texts
+    )
+    return [item.embedding for item in response.data]
 
 def flatten_bank(bank_name, bank_data):
     """Extract features and products as separate docs from a bank entry (bank_data)."""
@@ -55,8 +69,7 @@ def flatten_bank(bank_name, bank_data):
         })
     return documents, metadatas
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
-client = chromadb.PersistentClient(path=persist_dir)
+chroma_client = chromadb.PersistentClient(path=persist_dir)
 
 ### --- INDEX BANKS --- ###
 with open("docs/bancos_productos_funcionalidades.json", encoding="utf-8") as f:
@@ -73,16 +86,16 @@ for bank_name, bank_data in banks.items():
     all_texts.extend(docs)
     all_metadatas.extend(metas)
 
-embeddings = model.encode(all_texts)
+embeddings = openai_embed(all_texts)
 
-if "banks" in [col.name for col in client.list_collections()]:
-    client.delete_collection("banks")
-col_banks = client.create_collection("banks")
+if "banks" in [col.name for col in chroma_client.list_collections()]:
+    chroma_client.delete_collection("banks")
+col_banks = chroma_client.create_collection("banks")
 
 for idx, (text, emb, meta) in enumerate(zip(all_texts, embeddings, all_metadatas)):
     col_banks.add(
         ids=[str(idx)],
-        embeddings=[emb.tolist()],
+        embeddings=[emb],
         documents=[text],
         metadatas=[meta]
     )
@@ -117,20 +130,19 @@ for item in fundamentos:
     fundamentals_metadatas.append({
         "concepto": item.get("concepto", ""),
         "ejemplo": item.get("ejemplo", ""),
-        # Puedes almacenar solo las preguntas en metadata, o todo como texto plano:
         "preguntas_frecuentes": preguntas_str
     })
 
-fundamentals_embeddings = model.encode(fundamentals_texts)
+fundamentals_embeddings = openai_embed(fundamentals_texts)
 
-if "fundamentals" in [col.name for col in client.list_collections()]:
-    client.delete_collection("fundamentals")
-col_fundamentals = client.create_collection("fundamentals")
+if "fundamentals" in [col.name for col in chroma_client.list_collections()]:
+    chroma_client.delete_collection("fundamentals")
+col_fundamentals = chroma_client.create_collection("fundamentals")
 
 for idx, (text, emb, meta) in enumerate(zip(fundamentals_texts, fundamentals_embeddings, fundamentals_metadatas)):
     col_fundamentals.add(
         ids=[str(idx)],
-        embeddings=[emb.tolist()],
+        embeddings=[emb],
         documents=[text],
         metadatas=[meta]
     )
@@ -174,17 +186,20 @@ for filename, collection_name in file_to_collection.items():
                 "pregunta": pregunta
             })
 
-    embeddings = model.encode(docs)
+    if not docs:
+        continue
+
+    embeddings = openai_embed(docs)
 
     # Recreate collection to avoid duplicates
-    if collection_name in [col.name for col in client.list_collections()]:
-        client.delete_collection(collection_name)
-    collection = client.create_collection(collection_name)
+    if collection_name in [col.name for col in chroma_client.list_collections()]:
+        chroma_client.delete_collection(collection_name)
+    collection = chroma_client.create_collection(collection_name)
 
     for idx, (text, emb, meta) in enumerate(zip(docs, embeddings, metas)):
         collection.add(
             ids=[str(idx)],
-            embeddings=[emb.tolist()],
+            embeddings=[emb],
             documents=[text],
             metadatas=[meta]
         )

@@ -7,17 +7,13 @@ import tempfile
 from dotenv import load_dotenv
 from pathlib import Path
 import threading
-from langdetect import detect
-from deep_translator import GoogleTranslator
 
 # ChromaDB & Embedding setup
 import chromadb
-from sentence_transformers import SentenceTransformer
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 persist_dir = os.path.join(PROJECT_ROOT, "chroma_db")
 chroma_client = chromadb.PersistentClient(path=persist_dir)
-embed_model = SentenceTransformer("all-MiniLM-L6-v2")
 
 collections = {
     "banks": chroma_client.get_collection("banks"),            # bancos_productos_funcionalidades
@@ -27,13 +23,25 @@ collections = {
     # add more modules if needed
 }
 
+# ------------- NUEVO: Usar OpenAI embeddings -------------
+def openai_embed(text):
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    response = client.embeddings.create(
+        model="text-embedding-3-small",
+        input=text
+    )
+    # Siempre devolver la embedding como lista de floats
+    return response.data[0].embedding
+
 def query_relevant_chunks(user_query, collection, top_k=2):
-    emb = embed_model.encode([user_query])[0]
+    emb = openai_embed(user_query)
     results = collection.query(
-        query_embeddings=[emb.tolist()],
+        query_embeddings=[emb],
         n_results=top_k
     )
     return results['documents'][0] if results['documents'] else []
+
+# ---------------------------------------------------------
 
 # Environment variables for OpenAI
 env_path = Path(__file__).resolve().parent.parent / '.env'
@@ -83,13 +91,7 @@ def whisper_transcribe():
     return transcript.text
 
 def chat_with_gpt(user_msg):
-    detected_lang = detect(user_msg)
     translated_input = user_msg
-    if detected_lang != "es":
-        try:
-            translated_input = GoogleTranslator(source=detected_lang, target="es").translate(user_msg)
-        except Exception:
-            pass
 
     banks_chunks = query_relevant_chunks(translated_input, collections["banks"], top_k=5)
     banking_chunks = query_relevant_chunks(translated_input, collections["banking"], top_k=5)
@@ -114,14 +116,7 @@ Eres un asistente financiero para migrantes que necesitan abrir una cuenta banca
     )
 
     full_response = response.choices[0].message.content
-
-    if detected_lang != "es":
-        try:
-            full_response = GoogleTranslator(source="es", target=detected_lang).translate(full_response)
-        except Exception:
-            pass
-
-    return full_response, detected_lang
+    return full_response
 
 # ---- Streamlit State Management ----
 
@@ -157,7 +152,7 @@ if "prompt" in locals() and prompt:
     st.session_state.messages.append({"role": "user", "content": prompt})
 
     with st.chat_message("assistant"):
-        full_response, lang = chat_with_gpt(prompt)
+        full_response = chat_with_gpt(prompt)
         st.markdown(full_response)
     st.session_state.messages.append({"role": "assistant", "content": full_response})
 
@@ -179,19 +174,17 @@ if st.session_state.voice_response_pending:
 # Voz
 if st.session_state.listening:
     user_voice = whisper_transcribe()
-    detected_lang = detect(user_voice)
     st.info(f"Tú dijiste: {user_voice}")
     st.session_state.messages.append({"role": "user", "content": user_voice})
 
     with st.chat_message("user"):
         st.markdown(user_voice)
     with st.chat_message("assistant"):
-        full_response, lang = chat_with_gpt(user_voice)
+        full_response = chat_with_gpt(user_voice)
         st.markdown(full_response)
 
     st.session_state.messages.append({"role": "assistant", "content": full_response})
     st.session_state.voice_response_pending = full_response
-    st.session_state.voice_response_lang = lang
     st.session_state.listening = False
     st.rerun()
 

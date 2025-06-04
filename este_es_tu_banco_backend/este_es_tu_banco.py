@@ -3,7 +3,6 @@ import os
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 persist_dir = os.path.join(PROJECT_ROOT, "chroma_db")
-print("ChromaDB directory:", persist_dir)
 
 import streamlit as st
 from openai import OpenAI
@@ -14,9 +13,6 @@ import json
 from dotenv import load_dotenv
 from pathlib import Path
 import threading
-from langdetect import detect
-from deep_translator import GoogleTranslator
-from sentence_transformers import SentenceTransformer
 import chromadb
 
 # Cargar variables de entorno
@@ -31,20 +27,23 @@ available_voices = tts_engine.getProperty('voices')
 tts_engine.setProperty('rate', 150)
 tts_engine.setProperty('volume', 1.0)
 
-# Inicializa modelos y conexión
-embed_model = SentenceTransformer("all-MiniLM-L6-v2")
+# Inicializa conexión ChromaDB
 chroma_client = chromadb.PersistentClient(path=persist_dir)
 banks_collection = chroma_client.get_collection("banks")
 fundamentals_collection = chroma_client.get_collection("fundamentals")
 
 def query_relevant_chunks(text, collection, top_k=3):
-    emb = embed_model.encode([text])[0]
+    # Get embedding from OpenAI
+    embedding_response = client.embeddings.create(
+        model="text-embedding-3-small",  # Or "text-embedding-3-large"
+        input=text
+    )
+    emb = embedding_response.data[0].embedding
     results = collection.query(
-        query_embeddings=[emb.tolist()],
+        query_embeddings=[emb],
         n_results=top_k
     )
     return results['documents'][0]  # List of relevant chunks
-
 
 # Bloqueo para el TTS
 speak_lock = threading.Lock()
@@ -85,13 +84,7 @@ def whisper_transcribe():
     return transcript.text
 
 def chat_with_gpt(user_msg):
-    detected_lang = detect(user_msg)
     translated_input = user_msg
-    if detected_lang != "es":
-        try:
-            translated_input = GoogleTranslator(source=detected_lang, target="es").translate(user_msg)
-        except Exception:
-            pass
 
     relevant_banks = query_relevant_chunks(translated_input, banks_collection, top_k=5)
     relevant_fundamentals = query_relevant_chunks(translated_input, fundamentals_collection, top_k=3)
@@ -103,6 +96,8 @@ Sé claro y empático. Usa solo este contexto relevante:
 - Bancos y productos relevantes: {relevant_banks}
 
 - Conceptos de educación financiera relevantes: {relevant_fundamentals}
+
+Responde en el idioma en el que te pregunte el usuario.
 """
 
     response = client.chat.completions.create(
@@ -115,26 +110,7 @@ Sé claro y empático. Usa solo este contexto relevante:
     )
 
     full_response = response.choices[0].message.content
-
-    if detected_lang != "es":
-        try:
-            full_response = GoogleTranslator(source="es", target=detected_lang).translate(full_response)
-        except Exception:
-            pass
-
-    return full_response, detected_lang
-
-
-@st.cache_data
-def load_base_knowledge():
-    base = {}
-    with open(Path("docs/bancos_productos_funcionalidades.json"), "r", encoding="utf-8") as f:
-        base["bancos"] = json.load(f)
-    with open(Path("docs/modulo_1_fundamentos_de_la_educacion_financiera.json"), "r", encoding="utf-8") as f:
-        base["fundamentos"] = json.load(f)
-    return base
-
-base_knowledge = load_base_knowledge()
+    return full_response
 
 # Estado
 if "messages" not in st.session_state:
@@ -170,7 +146,7 @@ if "prompt" in locals() and prompt:
     st.session_state.messages.append({"role": "user", "content": prompt})
 
     with st.chat_message("assistant"):
-        full_response, lang = chat_with_gpt(prompt)
+        full_response = chat_with_gpt(prompt)
         st.markdown(full_response)
     st.session_state.messages.append({"role": "assistant", "content": full_response})
 
@@ -192,19 +168,17 @@ if st.session_state.voice_response_pending:
 # Voz
 if st.session_state.listening:
     user_voice = whisper_transcribe()
-    detected_lang = detect(user_voice)
     st.info(f"Tú dijiste: {user_voice}")
     st.session_state.messages.append({"role": "user", "content": user_voice})
 
     with st.chat_message("user"):
         st.markdown(user_voice)
     with st.chat_message("assistant"):
-        full_response, lang = chat_with_gpt(user_voice)
+        full_response = chat_with_gpt(user_voice)
         st.markdown(full_response)
 
     st.session_state.messages.append({"role": "assistant", "content": full_response})
     st.session_state.voice_response_pending = full_response
-    st.session_state.voice_response_lang = lang
     st.session_state.listening = False
     st.rerun()
 
